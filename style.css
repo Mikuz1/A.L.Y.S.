@@ -1,0 +1,1866 @@
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    background: #000;
+    color: #fafafa;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 35% 20%;
+    filter: brightness(0.55) contrast(1.1);
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.header {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+}
+
+.nav-links {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #fafafa;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 8px 24px;
+    border-radius: 12px;
+    transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+    opacity: 0.7;
+}
+
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 200;
+}
+
+.burger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: #fafafa;
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+
+.burger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.burger.active span:nth-child(2) { opacity: 0; }
+.burger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+.logo-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 42%;
+    max-width: 760px;
+}
+
+.logo {
+    width: 100%;
+    height: auto;
+    mix-blend-mode: screen;
+}
+
+.hero-social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.hero-social-icons a {
+    color: rgba(250, 250, 250, 0.85);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.hero-social-icons .social-btn {
+    width: 24px;
+    height: 24px;
+}
+
+.hero-social-icons a:hover {
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* ============================================================
+   MUSIC SECTION
+   ============================================================ */
+.music-section {
+    background: #000;
+    padding: 100px 0 120px;
+}
+
+.music-inner {
+    max-width: 1280px;
+    margin: 0 max(80px, calc((100% - 1280px) / 2));
+}
+
+.music-heading {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #fafafa;
+    margin-bottom: 48px;
+}
+
+/* ---- Список карток ---- */
+.music-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* ============================================================
+   КАРТКА — glass стиль
+   ============================================================ */
+.music-row {
+    display: grid;
+    grid-template-columns: min(630px, 50%) 1fr;
+    height: 630px;
+    position: relative;
+    isolation: isolate;
+    border-radius: 12px;
+    overflow: hidden;
+
+    /* Glass */
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Тінь */
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+    transition:
+        border-color 0.35s ease,
+        box-shadow 0.35s ease,
+        transform 0.35s ease,
+        background 0.35s ease;
+}
+
+.music-row::before,
+.music-row::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.music-row::before {
+    inset: -1px;
+    z-index: 0;
+    background: linear-gradient(
+        115deg,
+        rgba(14, 16, 22, 0.96) 0%,
+        #23262e 100%
+    );
+}
+
+.music-row::after {
+    width: min(42vw, 520px);
+    height: min(42vw, 520px);
+    left: 50%;
+    top: 50%;
+    z-index: 0;
+    border-radius: 999px;
+    background: radial-gradient(
+        circle,
+        rgba(59, 67, 88, 0.54) 0%,
+        rgba(20, 23, 31, 0.34) 42%,
+        rgba(20, 23, 31, 0) 72%
+    );
+    filter: blur(28px);
+    transform: translate(-50%, -50%) scale(0.78);
+}
+
+/* Hover — glass посилюється */
+.music-row:hover {
+    background: rgba(12, 14, 19, 0.72);
+    border-color: #363d4f;
+    
+    transform: none;
+}
+
+.music-row:hover::before,
+.music-row:hover::after {
+    opacity: 1;
+}
+
+.music-row:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* ============================================================
+   ЛІВО — ОБКЛАДИНКА
+   ============================================================ */
+.music-cover {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.music-cover--blue {
+    background: linear-gradient(160deg, #0c2b7a 0%, #1756cc 55%, #0a1f5c 100%);
+}
+
+.music-cover--purple {
+    background: linear-gradient(160deg, #32096a 0%, #7a1fd4 55%, #1c0a5a 100%);
+}
+
+.music-cover img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.music-row:hover .music-cover img {
+    transform: scale(1.06);
+}
+
+/* Затемнення справа — перехід до плеєра */
+.music-cover::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        transparent 50%,
+        rgba(0, 0, 0, 0.35) 100%
+    );
+    pointer-events: none;
+}
+
+/* ============================================================
+   ПРАВО — ПЛЕЄР
+   ============================================================ */
+.music-player {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 24px;
+    padding: 40px 40px;
+
+    /* Glass права панель */
+    background: rgba(10, 10, 10, 0.45);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ---- Верхній бар "Listen here" ---- */
+.music-player__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.music-player__bar:hover {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: #363d4f;
+}
+
+.music-player__bar-label {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.music-player__bar-chevron {
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+    flex-shrink: 0;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.music-player__bar:hover .music-player__bar-chevron {
+    opacity: 1;
+    transform: translateY(2px);
+}
+
+/* ---- Назва треку ---- */
+.music-player__title {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: #fafafa;
+}
+
+/* ---- Spotify iframe ---- */
+.music-player__embed {
+    border-radius: 12px;
+    overflow: hidden;
+    height: 296px;
+    flex-shrink: 0;
+}
+
+.music-player__embed iframe {
+    display: block;
+    border-radius: 12px;
+    width: 100%;
+    height: 296px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+/* 1200px */
+@media (max-width: 1200px) {
+    .logo-wrap { width: 70%; max-width: none; }
+
+    .music-inner { margin: 0 80px; }
+    .music-heading { font-size: 56px; }
+
+    .music-row {
+        grid-template-columns: min(480px, 50%) 1fr;
+        height: 480px;
+    }
+    .music-cover { width: 100%; height: 100%; }
+    .music-player { padding: 28px 36px; }
+    .music-player__title { font-size: 18px; }
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+    .music-inner { margin: 0 80px; }
+    .music-heading { font-size: 48px; margin-bottom: 40px; }
+
+    .music-row {
+        grid-template-columns: min(340px, 46%) 1fr;
+        height: 340px;
+    }
+    .music-cover { width: 100%; height: 100%; }
+    .music-player { padding: 24px; gap: 14px; }
+    .music-player__title { font-size: 15px; }
+    .music-player__embed,
+    .music-player__embed iframe { height: 152px; }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+    body { overflow-x: hidden; }
+
+    /* Hero */
+    .hero { height: 100svh; }
+    .hero-bg { object-position: 20% center; }
+    .header { top: 20px; right: 20px; }
+    .burger { display: flex; }
+
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        z-index: 150;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 22px; padding: 12px 40px; }
+    .logo-wrap { width: 80%; max-width: none; }
+
+    /* Music — як у референсі */
+    .music-section { padding: 60px 0; }
+    .music-inner { margin: 0; }
+    .music-heading { font-size: 48px; margin-bottom: 48px; }
+
+    /* Картка — вертикальний стек */
+    .music-row {
+        grid-template-columns: 1fr;
+        height: auto;
+        min-height: unset;
+        transform: none !important;
+        border-radius: 12px;
+    }
+    .music-cover {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+    .music-cover::after {
+        background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.4) 100%);
+    }
+    .music-player {
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 24px 24px;
+        gap: 14px;
+    }
+    .music-player__title { font-size: 16px; }
+    .music-player__embed,
+    .music-player__embed iframe { height: 152px; }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+    .hero-bg { object-position: 25% center; }
+    .logo-wrap { width: 90%; max-width: none; }
+
+    .music-section { padding: 40px 0; }
+    .music-inner { margin: 0 16px; }
+    .music-heading { font-size: 28px; line-height: 120%; }
+
+    .music-list { gap: 24px; }
+    .music-row { border-radius: 12px; }
+
+    .music-player { padding: 24px; gap: 12px; }
+    .music-player__title { font-size: 14px; }
+    .music-player__bar { padding: 8px 12px; }
+    .music-player__bar-label { font-size: 12px; }
+    .music-player__embed,
+    .music-player__embed iframe { height: 152px; }
+}
+
+/* 320px */
+@media (max-width: 320px) {
+    .music-heading { font-size: 24px; }
+    .music-player { padding: 24px; }
+    .music-player__title { font-size: 13px; }
+    .music-player__embed,
+    .music-player__embed iframe { height: 240px; }
+}
+
+/* ============================================================
+   VIDEO SECTION
+   ============================================================ */
+.youtube-section {
+    background: #000;
+    width: min(calc(100% - 160px), 1280px);
+    margin: 0 auto;
+    padding: 112px 0 120px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.youtube-heading {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #fafafa;
+    margin-bottom: 0;
+    grid-column: 1 / -1;
+}
+
+.youtube-player {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.youtube-player:hover {
+    border-color: #363d4f;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.55);
+}
+
+.youtube-player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 16px;
+}
+
+/* ============================================================
+   SOUNDCLOUD SECTION
+   ============================================================ */
+.soundcloud-section {
+    background: #000;
+    width: min(calc(100% - 160px), 1280px);
+    margin: 0 auto;
+    padding: 112px 0 120px;
+}
+
+.soundcloud-heading {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: #fafafa;
+    margin-bottom: 48px;
+}
+
+.soundcloud-player-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.soundcloud-player {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    padding: 24px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.soundcloud-player:hover {
+    border-color: #363d4f;
+    box-shadow:
+        0 8px 40px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.soundcloud-player h3 {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #fafafa;
+    letter-spacing: -0.01em;
+}
+
+.soundcloud-player iframe {
+    display: block;
+    width: 100%;
+    height: 200px;
+    border: none;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   ABOUT SECTION
+   ============================================================ */
+.about-section {
+    background: #000;
+    padding: 40px 0 40px;
+}
+
+
+
+.about-inner {
+    max-width: 1280px;
+    margin: 0 max(80px, calc((100% - 1280px) / 2));
+}
+
+.about-heading {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: 0em;
+    color: #fafafa;
+    margin-bottom: 48px;
+}
+
+/* ---- Контейнер (кольори зберігаємо, layout з референсу) ---- */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: linear-gradient(
+    151deg, 
+    rgba(20, 23, 31, 0.2) 0%,   /* 80% непрозорості */
+    rgba(70, 79, 103, 0.2) 100% /* 80% непрозорості */
+  );
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    min-height: 631px;
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.about-container:hover {
+    border-color: #363d4f;
+    box-shadow:
+        0 8px 40px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* ---- Фото ---- */
+.about-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.about-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    
+    transition: filter 0.4s ease, transform 0.5s ease;
+}
+
+.about-image img:hover {
+    filter: grayscale(0%);
+}
+
+.about-container:hover .about-image img {
+    transform: scale(1.03);
+}
+
+/* ---- Текст — заповнює праву колонку повністю ---- */
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    padding: 40px;
+    min-width: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.07);
+    background: rgba(10, 12, 18, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.about-title {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #FAFAFA;
+    margin-bottom: 0;
+}
+
+.about-description {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.55;
+    color: #F3F4F6;
+    margin-bottom: 0;
+}
+
+.about-releases__heading {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fafafa;
+    margin-bottom: 12px;
+}
+
+.about-releases__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.about-releases__list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.55;
+    color: #f3f4f6;
+}
+
+.release-dot {
+    flex-shrink: 0;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: rgba(180, 180, 210, 0.6);
+    margin-top: 7px;
+}
+
+.learn-more-btn {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  margin-top: 24px;
+  padding: 12px 24px;
+  background-color: #F9D665;
+  color: #06080E;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.4s ease;
+}
+
+/* текст поверх */
+.learn-more-btn span {
+  position: relative;
+  z-index: 2;
+  text-decoration: none;  /* забрав підкреслення */
+}
+
+/* ефект як у cssbuttons-io, але прихований */
+.learn-more-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -190%; /* повністю сховано!!! */
+  width: 130%;
+  height: 100%;
+  background: #fff6c7;
+  transform: skew(30deg);
+  transition: left 0.50s cubic-bezier(0.3, 1, 0.8, 1),
+              transform 0.50s cubic-bezier(0.3, 1, 0.8, 1);
+  z-index: 1;
+}
+
+/* при ховері анімація */
+.learn-more-btn:hover::before {
+  left: 160%;
+  transform: translateX(0) skew(30deg);
+}
+
+/* hover тінь */
+.learn-more-btn:hover {
+  box-shadow: 0 6px 26px rgba(249, 214, 101, 0.4);
+}
+
+/* active */
+.learn-more-btn:active {
+  transform: scale(0.95);
+}
+
+
+/* ============================================================
+   RESPONSIVE — VIDEO / SOUNDCLOUD / ABOUT
+   ============================================================ */
+
+/* 1200px */
+@media (max-width: 1200px) {
+    .youtube-section   { width: 100%; max-width: none; margin: 0; padding: 80px 80px 100px; gap: 32px; }
+    .youtube-heading   { font-size: 56px; }
+
+    .soundcloud-section  { width: 100%; max-width: none; margin: 0; padding: 80px 80px 100px; }
+    .soundcloud-heading  { font-size: 56px; }
+    .soundcloud-player-block { gap: 32px; }
+    .soundcloud-player h3    { font-size: 16px; }
+    .soundcloud-player iframe{ height: 280px; }
+
+    .about-inner   { margin: 0 80px; }
+    .about-heading { font-size: 56px; }
+    .about-heading { font-size: 56px; }
+    .about-container { min-height: 500px; }
+    .about-title { font-size: 38px; }
+    .about-title   { font-size: 40px; }
+}
+
+/* 1024px */
+@media (max-width: 1024px) {
+    .youtube-section   { padding: 60px 80px 80px; gap: 24px; }
+    .youtube-heading   { font-size: 48px; }
+
+    .soundcloud-section  { padding: 60px 80px 80px; }
+    .soundcloud-heading  { font-size: 48px; }
+    .soundcloud-player-block { gap: 24px; }
+    .soundcloud-player   { padding: 24px; }
+    .soundcloud-player iframe{ height: 220px; }
+
+    .about-inner   { margin: 0 80px; }
+    .about-heading { font-size: 48px; margin-bottom: 40px; }
+    .about-heading { font-size: 48px; margin-bottom: 40px; }
+    .about-container {
+        grid-template-columns: 1fr;
+        min-height: unset;
+    }
+    .about-image { min-height: 380px; }
+    .about-text {
+        border-left: none;
+        border-top: 1px solid rgba(255,255,255,0.07);
+        padding: 40px;
+        gap: 20px;
+    }
+    .about-title { font-size: 36px; }
+    .about-description { font-size: 15px; }
+    .about-title   { font-size: 32px; }
+    .about-description { font-size: 14px; }
+}
+
+/* 768px */
+@media (max-width: 768px) {
+    .youtube-section   { padding: 60px 24px 80px; grid-template-columns: 1fr; gap: 24px; }
+    .youtube-heading   { font-size: 48px; margin-bottom: 8px; }
+    .youtube-player    { border-radius: 12px; }
+    .youtube-player iframe { border-radius: 12px; }
+
+    .soundcloud-section  { padding: 60px 24px 80px; }
+    .soundcloud-heading  { font-size: 48px; margin-bottom: 32px; }
+    .soundcloud-player-block { grid-template-columns: 1fr; gap: 24px; }
+    .soundcloud-player   { padding: 24px; border-radius: 12px; }
+    .soundcloud-player h3    { font-size: 15px; }
+    .soundcloud-player iframe{ height: 220px; border-radius: 10px; }
+
+    .about-inner   { margin: 0 24px; }
+    .about-heading { font-size: 48px; margin-bottom: 32px; }
+    .about-container { border-radius: 12px; }
+    .about-image { min-height: 300px; }
+    .about-text { padding: 24px 24px; gap: 12px; }
+    .about-title { font-size: 30px; }
+    .about-description { font-size: 14px; }
+    .about-releases__heading { font-size: 16px; }
+    .about-releases__list li { font-size: 12px; }
+    .about-title   { font-size: 28px; }
+    .about-releases__heading { font-size: 16px; }
+    .about-releases__list li { font-size: 12px; }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+    .youtube-section   { padding: 40px 16px 60px; gap: 20px; }
+    .youtube-heading   { font-size: 28px; line-height: 1.2; }
+
+    .soundcloud-section  { padding: 40px 16px 60px; }
+    .soundcloud-heading  { font-size: 28px; line-height: 1.2; margin-bottom: 24px; }
+    .soundcloud-player-block { gap: 20px; }
+    .soundcloud-player   { padding: 24px; }
+    .soundcloud-player h3    { font-size: 14px; }
+    .soundcloud-player iframe{ height: 200px; }
+
+    .about-inner   { margin: 0 16px; }
+    .about-heading { font-size: 28px; line-height: 1.2; }
+    .about-container { border-radius: 12px; }
+    .about-image { min-height: 240px; }
+    .about-text { padding: 24px; gap: 12px; }
+    .about-title { font-size: 24px; }
+    .about-description { font-size: 13px; }
+    .about-releases__heading { font-size: 14px; margin-bottom: 8px; }
+    .about-releases__list li { font-size: 12px; }
+    .about-title   { font-size: 24px; }
+    .about-description { font-size: 16px; }
+    .about-releases__heading { font-size: 14px; margin-bottom: 8px; }
+    .about-releases__list li { font-size: 12px; }
+}
+
+/* 320px */
+@media (max-width: 320px) {
+    .youtube-heading   { font-size: 24px; }
+    .soundcloud-heading{ font-size: 24px; }
+    .soundcloud-player iframe{ height: 180px; }
+    .about-heading     { font-size: 24px; }
+    .about-image       { height: 200px; }
+    .about-title       { font-size: 20px; }
+}
+
+/* ============================================================
+   SERVICE SECTION
+   ============================================================ */
+.services {
+  background: #000;
+  padding: 112px 0 120px;
+}
+
+.services__container {
+  max-width: 1280px;
+  margin: 0 max(80px, calc((100% - 1280px) / 2));
+}
+
+.services__title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1.1;
+  
+  color: #fafafa;
+  margin-bottom: 48px;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* ---- Картка — стиль як about-container ---- */
+.service-card {
+  position: relative;
+  min-height: 200px;
+  padding: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(
+    151deg, 
+    rgba(20, 23, 31, 0.2) 0%,   /* 80% непрозорості */
+    rgba(70, 79, 103, 0.2) 100% /* 80% непрозорості */
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.service-card:hover {
+  border-color: #363d4f;
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.service-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.service-card__title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #FAFAFA;
+}
+
+.service-card__icon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-card__text {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.55;
+  color: #F3F4F6;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1200px) {
+  .services__container { margin: 0 80px; }
+  .services__title     { font-size: 56px; }
+}
+
+@media (max-width: 1080px) {
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .services            { padding: 60px 0 80px; }
+  .services__container { margin: 0 24px; }
+  .services__title     { font-size: 48px; margin-bottom: 32px; }
+  .service-card        { min-height: unset; padding: 24px; border-radius: 12px; }
+  .service-card__title { font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+  .services            { padding: 40px 0 60px; }
+  .services__container { margin: 0 16px; }
+  .services__title     { font-size: 28px; line-height: 1.2; margin-bottom: 24px; }
+  .services__grid      { grid-template-columns: 1fr; gap: 14px; }
+  .service-card        { padding: 24px; }
+  .service-card__title { font-size: 17px; }
+  .service-card__text  { font-size: 13px; }
+}
+
+@media (max-width: 320px) {
+  .services__title     { font-size: 24px; }
+  .service-card__title { font-size: 15px; }
+}
+
+/* ============================================================
+   CONTACT SECTION
+   ============================================================ */
+.contact-section {
+  position: relative;
+  width: 100%;
+  height: 986px;
+  margin: 112px 0 224px;
+  background-image: url('img/Sections form.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Two-column layout wrapper */
+.contact-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: min(calc(100% - 160px), 1280px);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  gap: 48px;
+  box-sizing: border-box;
+}
+
+/* Left — heading + email info */
+.contact-left {
+  flex: 1 1 0;
+  padding-right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 45px;
+}
+
+/* Right — form only */
+.contact-right {
+  flex: 0 1 550px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 550px;
+}
+
+.contact-heading {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: left;
+  letter-spacing: -0.02em;
+  color: #fafafa;
+  margin: 0;
+}
+  
+/* ---- Contact Form ---- */
+.contact-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  border-radius: 12px;
+   background: linear-gradient(
+    151deg, 
+    rgba(20, 23, 31, 0.2) 0%,   /* 80% непрозорості */
+    rgba(70, 79, 103, 0.2) 100% /* 80% непрозорості */
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.contact-form-wrapper:hover {
+  border-color: #363d4f;
+  
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #f3f4f6;
+  letter-spacing: 0.01em;
+}
+
+.form-required {
+  color: #ff6b6b;
+}
+
+.form-control {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: #fafafa;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.form-control:hover {
+  border-color: #363d4f;
+}
+
+.form-control:focus {
+  outline: none;
+  background: transparent;
+  border-color: #363d4f;
+  box-shadow: 0 0 0 3px rgba(54, 61, 79, 0.22);
+}
+
+/* ---- Custom Select Dropdown ---- */
+.form-select-wrapper {
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+.form-select {
+  width: 100%;
+  padding: 12px 14px;
+  padding-right: 40px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: #fafafa;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  transition: all 0.3s ease;
+  background-image: none;
+}
+
+.form-select:hover {
+  background: transparent;
+  border-color: #363d4f;
+}
+
+.form-select:focus {
+  outline: none;
+  background: transparent;
+  border-color: #363d4f;
+}
+
+/* Dropdown Icon */
+.dropdown-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-select-wrapper:focus-within .dropdown-icon {
+  transform: translateY(-50%) rotate(180deg);
+  color: #fff;
+}
+
+.dropdown-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* Phone Flag Display */
+#phoneFlag {
+  display: block;
+  width: 40px;
+  height: 28px;
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+#phoneFlag:hover {
+  transform: scale(1.05);
+}
+
+.form-phone-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-width: 0;
+}
+
+.form-phone-input {
+  padding: 12px 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Select option styling */
+.form-select option {
+  background-color: #0a0a0a;
+  color: #fafafa;
+  padding: 12px 10px;
+  border: none;
+  outline: none;
+  background-image: none;
+  accent-color: transparent;
+}
+
+.form-select option:checked {
+  background-color: #1a1a1a !important;
+  background-image: none !important;
+  color: #fafafa !important;
+}
+
+.form-select option:-moz-checked {
+  background-color: #1a1a1a !important;
+  background-image: none !important;
+  color: #fafafa !important;
+}
+
+.form-select option:hover {
+  background-color: #1a1a1a;
+  background-image: none;
+  color: #fafafa;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  padding: 12px 14px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.form-submit-btn {
+  position: relative;
+  padding: 12px 24px;
+  background-color: #F9D665;
+  color: #06080E;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+/* текст поверх */
+.form-submit-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+/* ефект як у cssbuttons-io, але прихований */
+.form-submit-btn::before {
+ content: "";
+  position: absolute;
+  top: 0;
+  left: -190%; /* повністю сховано!!! */
+  width: 130%;
+  height: 100%;
+  background: #fff6c7;
+  transform: skew(30deg);
+  transition: left 0.50s cubic-bezier(0.3, 1, 0.8, 1),
+              transform 0.50s cubic-bezier(0.3, 1, 0.8, 1);
+  z-index: 1;
+}
+
+/* при ховері анімація */
+.form-submit-btn:hover::before {
+  left: 160%;
+  transform: translateX(0) skew(30deg);
+}
+
+/* hover тінь */
+.learn-more-btn:hover {
+  box-shadow: 0 6px 26px rgba(249, 214, 101, 0.4);
+}
+
+.form-submit-btn:active {
+  transform: scale(0.95);
+}
+
+.form-message {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  min-height: 20px;
+  color: #ff5555;
+}
+
+/* Success Toast */
+#formSuccessToast {
+  animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toast-checkmark {
+  flex-shrink: 0;
+}
+
+/* ---- Contact Info Cards ---- */
+.contact-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.contact-info-card {
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(13, 15, 20, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  text-align: left;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 280px;
+}
+
+.contact-info-card:hover {
+  border-color: #363d4f;
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.contact-info-title {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #fafafa;
+  margin-bottom: 0;
+}
+
+.contact-info-label {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #fafafa;
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+.contact-info-label:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-info-text {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---- Contact Responsive ---- */
+@media (max-width: 1200px) {
+  .contact-layout { width: calc(100% - 160px); }
+  .contact-heading { font-size: 48px; }
+  .contact-right { max-width: 500px; }
+  .contact-form { gap: 18px; }
+  .form-row--name-phone { grid-template-columns: 1fr; gap: 18px; }
+}
+
+@media (max-width: 1024px) {
+  .contact-section { height: auto; min-height: 986px; }
+  .contact-layout { width: calc(100% - 160px); gap: 40px; }
+  .contact-heading { font-size: 40px; }
+  .contact-right { max-width: 460px; }
+  .contact-form-wrapper { padding: 28px; }
+}
+
+@media (max-width: 768px) {
+  .contact-section { height: auto; min-height: unset; margin: 60px 0 80px; padding: 48px 0; }
+  .contact-layout {
+    flex-direction: column;
+    width: calc(100% - 48px);
+    gap: 32px;
+  }
+  .contact-left { padding-right: 0; }
+  .contact-right { max-width: 100%; width: 100%; }
+  .contact-heading { font-size: 36px; }
+  .contact-form-wrapper { padding: 24px; }
+  .form-row { grid-template-columns: 1fr; gap: 16px; }
+}
+
+@media (max-width: 480px) {
+  .contact-section { margin: 40px 0 60px; padding: 40px 0; }
+  .contact-layout { width: calc(100% - 32px); gap: 24px; }
+  .contact-heading { font-size: 28px; line-height: 1.2; }
+  .contact-form { gap: 16px; }
+  .form-row { gap: 14px; }
+  .contact-info-card { padding: 24px; min-width: unset; width: 100%; }
+  .contact-info-title { font-size: 24px; }
+  .contact-info-label { font-size: 14px; }
+  .form-control { padding: 10px 12px; font-size: 14px; }
+  .form-submit-btn { padding: 10px 24px; font-size: 13px; }
+}
+
+@media (max-width: 320px) {
+  .contact-heading { font-size: 24px; }
+  .contact-info-card { padding: 24px; }
+  .form-phone-group { gap: 8px; }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.artist-footer {
+  --footer-height: clamp(500px, 47.75vw, 573px);
+  --footer-top-space: clamp(40px, 5vw, 64px);
+  --footer-follow-social-gap: clamp(14px, 1.8vw, 24px);
+  --footer-social-logo-gap: clamp(28px, 6vw, 80px);
+  --footer-logo-menu-gap: clamp(24px, 4vw, 48px);
+  --footer-menu-copy-gap: clamp(36px, 5vw, 64px);
+  --footer-copy-bottom: 12px;
+  --footer-copy-line: 16px;
+  position: relative;
+  width: 100%;
+  height: var(--footer-height);
+  min-height: var(--footer-height);
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ---- Blur effects on sides ---- */
+.footer-blur {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.8;
+  filter: blur(120px);
+  background: linear-gradient(
+    135deg,
+    rgba(20, 23, 31, 0.8) 0%,
+    rgba(59, 67, 88, 0.8) 100%
+  );
+}
+
+.footer-blur--left {
+  left: -18%;
+  top: -10%;
+  transform: rotate(-18deg);
+}
+
+.footer-blur--right {
+  right: -18%;
+  bottom: -12%;
+  transform: rotate(-47deg);
+}
+
+/* ---- Footer Content ---- */
+.footer-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 40px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+/* ---- Footer Main (centered content) ---- */
+.footer-main {
+  position: absolute;
+  top: var(--footer-top-space);
+  right: 40px;
+  bottom: calc(var(--footer-copy-bottom) + var(--footer-copy-line) + var(--footer-menu-copy-gap));
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---- Follow Us Text ---- */
+.follow-text {
+  color: rgba(250, 250, 250, 0.8);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 0 0 var(--footer-follow-social-gap);
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* ---- Social Icons ---- */
+.social-icons {
+  display: flex;
+  gap: clamp(18px, 2.5vw, 36px);
+  align-items: center;
+  height: 20px;
+  margin-bottom: var(--footer-social-logo-gap);
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(16px, 1.25vw, 20px);
+  height: clamp(16px, 1.25vw, 20px);
+}
+
+.social-icons a {
+  color: rgba(250, 250, 250, 0.75);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.social-btn svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  fill: currentColor;
+  color: #ffffff;
+  transform-origin: center;
+}
+
+.social-btn[aria-label="Facebook"] svg {
+  transform: scale(1.12);
+}
+
+.social-btn[aria-label="YouTube"] svg {
+  transform: scale(1.04);
+}
+
+.social-btn[aria-label="Beatport"] svg {
+  transform: scale(1.16);
+}
+
+.social-btn[aria-label="SoundCloud"] svg {
+  transform: scale(1.22);
+}
+
+.social-icons a:hover {
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ---- Footer Logo ---- */
+.footer-logo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 0;
+  margin-bottom: var(--footer-logo-menu-gap);
+}
+
+.footer-logo {
+  width: clamp(280px, 48vw, 739px);
+  height: auto;
+  max-width: 80vw;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ---- Footer Menu ---- */
+.footer-menu {
+  display: flex;
+  gap: clamp(16px, 3vw, 48px);
+  align-items: center;
+  min-height: 16px;
+}
+
+.footer-menu a {
+  color: rgba(250, 250, 250, 0.7);
+  text-decoration: none;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 16px;
+  transition: color 0.25s ease;
+}
+
+.footer-menu a:hover {
+  color: #fff;
+}
+
+/* ---- Footer Copy ---- */
+.footer-copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--footer-copy-bottom);
+  z-index: 2;
+  color: rgba(250, 250, 250, 0.7);
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: var(--footer-copy-line);
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+/* ============================================================
+   FOOTER RESPONSIVE
+   ============================================================ */
+@media (max-width: 1200px) {
+  .footer-content { padding: 0 40px; }
+}
+
+@media (max-width: 768px) {
+  .artist-footer {
+    --footer-top-space: 44px;
+    --footer-social-logo-gap: clamp(28px, 5vw, 48px);
+    --footer-logo-menu-gap: 28px;
+    --footer-menu-copy-gap: 40px;
+  }
+  .footer-content { padding: 0 24px; }
+  .footer-main { left: 24px; right: 24px; }
+  .follow-text { font-size: 16px; line-height: 22px; }
+  .footer-menu { gap: 24px; flex-wrap: wrap; justify-content: center; }
+  .footer-menu a { font-size: 14px; }
+}
+
+@media (max-width: 748px) {
+  .artist-footer {
+    height: auto;
+    min-height: 0;
+    align-items: stretch;
+    padding: 40px 0 12px;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 0 20px;
+  }
+
+  .footer-main {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .follow-text {
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 1.4px;
+  }
+
+  .social-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px 24px;
+    height: auto;
+    margin-bottom: 40px;
+  }
+
+  .social-btn {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-logo-box {
+    flex: 0 0 auto;
+    margin-bottom: 40px;
+  }
+
+  .footer-logo {
+    width: min(300px, 72vw);
+    max-width: 100%;
+    max-height: none;
+  }
+
+  .footer-menu {
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 24px;
+    max-width: none;
+    min-height: 0;
+  }
+
+  .footer-menu a {
+    padding: 8px 2px;
+    font-size: 13px;
+    line-height: 16px;
+    white-space: nowrap;
+  }
+
+  .footer-copy {
+    position: static;
+    margin-top: 40px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .artist-footer {
+    padding-top: 40px;
+  }
+  .footer-blur { width: 50%; }
+  .footer-content { padding: 0 16px; }
+  .social-icons { margin-bottom: 40px; }
+  .footer-logo-box { margin-bottom: 40px; }
+  .footer-logo { width: min(280px, 74vw); }
+  .footer-menu { gap: 16px; }
+  .footer-menu a { padding: 6px 1px; font-size: 12px; }
+  .footer-copy { margin-top: 40px; }
+}
+ 
