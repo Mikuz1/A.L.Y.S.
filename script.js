@@ -308,6 +308,14 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     
     // ---------- SMOOTH SCROLL ----------
+    const header = document.querySelector('.header');
+    const updateHeaderState = () => {
+        if (!header) return;
+        header.classList.toggle('is-scrolled', window.scrollY > 2);
+    };
+    updateHeaderState();
+    window.addEventListener('scroll', updateHeaderState, { passive: true });
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -316,7 +324,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const target = document.querySelector(href);
             if (target) {
                 e.preventDefault();
-                const navbarHeight = document.querySelector('.header') ? document.querySelector('.header').offsetHeight : 0;
+                const navbarHeight = header ? header.offsetHeight : 0;
                 window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - navbarHeight, behavior: 'smooth' });
             }
         });
