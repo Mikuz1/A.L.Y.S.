@@ -11,6 +11,7 @@
     <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
     
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_about.css">
 </head>
 <body>
     <svg aria-hidden="true" focusable="false" style="display: none;">
@@ -62,7 +63,7 @@
     </template>
 <!-- ===== HERO ===== -->
     <header class="hero">
-        <img src="img/here.webp" alt="A.L.Y.S. 2026" class="hero-bg">
+        <img src="img/hero.webp" alt="A.L.Y.S. 2026" class="hero-bg">
 
         <nav class="header">
             <div class="burger">
@@ -74,7 +75,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="#music">Music</a></li>
                 <li><a href="#video">Video</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="#service">Service</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -84,6 +85,9 @@
             <img src="img/logo_footer.svg" alt="Logo" class="logo">
             <div class="hero-social-icons" aria-label="A.L.Y.S social links" data-social-links></div>
         </div>
+        <a href="#music" class="scroll-down" aria-label="Scroll to music section">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
     </header>
 <!-- ===== MUSIC ===== -->
     <main>
@@ -161,51 +165,7 @@
                 </div>
             </div>
         </section>
-
-        <section class="youtube-section" id="video" aria-label="A.L.Y.S Videos">
-            <h2 class="youtube-heading">Video</h2>
-
-            <div class="youtube-player">
-                <iframe
-                    src="https://www.youtube.com/embed/vondEGjbRcU"
-                    title="A.L.Y.S — Video 1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    loading="lazy">
-                </iframe>
-            </div>
-
-            <div class="youtube-player">
-                <iframe
-                    src="https://www.youtube.com/embed/tkEI58YV8Vo"
-                    title="A.L.Y.S — Video 2"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    loading="lazy">
-                </iframe>
-            </div>
-
-            <div class="youtube-player">
-                <iframe
-                    src="https://www.youtube.com/embed/GhhaBxysjXM"
-                    title="A.L.Y.S — Video 3"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    loading="lazy">
-                </iframe>
-            </div>
-
-            <div class="youtube-player">
-                <iframe
-                    src="https://www.youtube.com/embed/VNYjkl2T6h0"
-                    title="A.L.Y.S — Video 4"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    loading="lazy">
-                </iframe>
-            </div>
-        </section>
-
+<!-- ===== Sound Cloud ===== -->
         <section class="soundcloud-section" id="soundcloud" aria-label="A.L.Y.S on SoundCloud">
             <h2 class="soundcloud-heading">Sound Cloud</h2>
             <div class="soundcloud-player-block">
@@ -269,6 +229,52 @@
             </div>
         </section>
 
+        <!-- ===== Video ===== -->
+
+        <section class="youtube-section" id="video" aria-label="A.L.Y.S Videos">
+            <h2 class="youtube-heading">Video</h2>
+
+            <div class="youtube-player">
+                <iframe
+                    src="https://www.youtube.com/embed/vondEGjbRcU"
+                    title="A.L.Y.S — Video 1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+            </div>
+
+            <div class="youtube-player">
+                <iframe
+                    src="https://www.youtube.com/embed/tkEI58YV8Vo"
+                    title="A.L.Y.S — Video 2"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+            </div>
+
+            <div class="youtube-player">
+                <iframe
+                    src="https://www.youtube.com/embed/GhhaBxysjXM"
+                    title="A.L.Y.S — Video 3"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+            </div>
+
+            <div class="youtube-player">
+                <iframe
+                    src="https://www.youtube.com/embed/VNYjkl2T6h0"
+                    title="A.L.Y.S — Video 4"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+            </div>
+        </section>
+
         <!-- ===== About ===== -->
         <section class="about-section" id="about" aria-label="About A.L.Y.S.">
             <div class="about-inner">
@@ -296,7 +302,7 @@
                            Rather than following one fixed formula, A.L.Y.S. aims to create tracks that feel both powerful on the dancefloor and meaningful to the listener. 
                            Their music often blends uplifting chord progressions, warm synth layers, energetic grooves, and carefully crafted arrangements designed for both club and radio formats.
                         </p>
-<a href="#more" class="learn-more-btn">Learn More</a>
+<a href="about.html" class="learn-more-btn">Learn More</a>
                      
                     </div>
                 </div>
