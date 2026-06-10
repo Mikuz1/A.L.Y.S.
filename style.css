@@ -40,6 +40,11 @@ body {
     filter: brightness(0.55) contrast(1.1);
 }
 
+.hero .scroll-down {
+    bottom: 120px;
+    z-index: 2;
+}
+
 /* ============================================================
    NAV
    ============================================================ */
@@ -86,6 +91,14 @@ body {
     padding: 8px 24px;
     border-radius: 12px;
     transition: opacity 0.2s;
+}
+
+.nav-links a.active {
+    color: #f9d665;
+    text-decoration: underline;
+    text-decoration-color: #f9d665;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
 }
 
 .nav-links a:hover {
