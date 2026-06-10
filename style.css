@@ -774,11 +774,12 @@ body {
 
 .about-description {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 300;
-    line-height: 1.55;
+    line-height: 1.35;
     color: #F3F4F6;
     margin-bottom: 0;
+    letter-spacing: 0;
 }
 
 .about-releases__heading {
@@ -923,9 +924,7 @@ body {
         gap: 20px;
     }
     .about-title { font-size: 36px; }
-    .about-description { font-size: 15px; }
     .about-title   { font-size: 32px; }
-    .about-description { font-size: 14px; }
 }
 
 /* 768px */
@@ -948,7 +947,6 @@ body {
     .about-image { min-height: 300px; }
     .about-text { padding: 24px 24px; gap: 12px; }
     .about-title { font-size: 30px; }
-    .about-description { font-size: 14px; }
     .about-releases__heading { font-size: 16px; }
     .about-releases__list li { font-size: 12px; }
     .about-title   { font-size: 28px; }
@@ -974,11 +972,9 @@ body {
     .about-image { min-height: 240px; }
     .about-text { padding: 24px; gap: 12px; }
     .about-title { font-size: 24px; }
-    .about-description { font-size: 13px; }
     .about-releases__heading { font-size: 14px; margin-bottom: 8px; }
     .about-releases__list li { font-size: 12px; }
     .about-title   { font-size: 24px; }
-    .about-description { font-size: 16px; }
     .about-releases__heading { font-size: 14px; margin-bottom: 8px; }
     .about-releases__list li { font-size: 12px; }
 }
