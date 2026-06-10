@@ -316,6 +316,50 @@ document.addEventListener('DOMContentLoaded', function () {
     updateHeaderState();
     window.addEventListener('scroll', updateHeaderState, { passive: true });
 
+    const headerNavLinks = Array.from(document.querySelectorAll('.header .nav-links a'));
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const defaultActiveHref = currentPage === 'about.html' ? 'about.html' : 'index.html';
+    const setActiveNavLink = (activeHref) => {
+        if (!headerNavLinks.some(link => link.getAttribute('href') === activeHref)) return;
+
+        headerNavLinks.forEach((link) => {
+            const href = link.getAttribute('href') || '';
+            link.classList.toggle('active', href === activeHref);
+        });
+    };
+    setActiveNavLink(defaultActiveHref);
+
+    const navSections = [
+        { href: 'index.html', element: document.querySelector('.hero') },
+        { href: '#music', element: document.getElementById('music') },
+        { href: '#video', element: document.getElementById('video') },
+        { href: '#service', element: document.getElementById('service') },
+        { href: '#contact', element: document.getElementById('contact') },
+    ].filter(item => item.element && headerNavLinks.some(link => link.getAttribute('href') === item.href));
+
+    const updateActiveNavOnScroll = () => {
+        if (!navSections.length) {
+            setActiveNavLink(defaultActiveHref);
+            return;
+        }
+
+        const headerHeight = header ? header.offsetHeight : 0;
+        const marker = window.scrollY + headerHeight + Math.min(window.innerHeight * 0.28, 220);
+        let current = navSections[0];
+
+        navSections.forEach((item) => {
+            if (item.element.offsetTop <= marker) {
+                current = item;
+            }
+        });
+
+        setActiveNavLink(current.href);
+    };
+
+    updateActiveNavOnScroll();
+    window.addEventListener('scroll', updateActiveNavOnScroll, { passive: true });
+    window.addEventListener('resize', updateActiveNavOnScroll);
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -326,6 +370,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 e.preventDefault();
                 const navbarHeight = header ? header.offsetHeight : 0;
                 window.scrollTo({ top: target.getBoundingClientRect().top + window.pageYOffset - navbarHeight, behavior: 'smooth' });
+                setActiveNavLink(href);
             }
         });
     });
