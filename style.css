@@ -192,7 +192,7 @@ body {
     margin-bottom: 48px;
 }
 
-/* ---- Список карток ---- */
+/* ---- РЎРїРёСЃРѕРє РєР°СЂС‚РѕРє ---- */
 .music-list {
     display: flex;
     flex-direction: column;
@@ -202,92 +202,44 @@ body {
 .music-toolbar {
     position: relative;
     z-index: 5;
-    display: inline-flex;
-    margin-bottom: 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-bottom: 16px;
 }
 
-.music-sort-toggle {
+.music-tab {
     display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 18px;
-    min-width: 180px;
+    justify-content: center;
+    min-width: 132px;
     padding: 10px 16px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.05);
     color: rgba(255, 255, 255, 0.8);
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: 0.02em;
     cursor: pointer;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    transition: background 0.2s, border-color 0.2s;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
-.music-sort-toggle:hover,
-.music-sort-toggle[aria-expanded="true"] {
+.music-tab:hover {
     background: rgba(255, 255, 255, 0.09);
     border-color: #363d4f;
+    color: #F9EABE;
 }
 
-.music-sort-toggle[aria-expanded="true"] .music-player__bar-chevron {
-    opacity: 1;
-    transform: rotate(180deg);
-}
-
-.music-sort-menu {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    z-index: 10;
-    width: 220px;
-    padding: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    background: rgba(18, 20, 26, 0.96);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.42);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-}
-
-.music-sort-option {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 10px 12px;
-    border: 0;
-    border-radius: 8px;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.76);
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    text-align: left;
-    cursor: pointer;
-}
-
-.music-sort-option:hover,
-.music-sort-option.is-active {
-    background: rgba(255, 255, 255, 0.08);
+.music-tab.is-active {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: #363d4f;
     color: #f9d665;
 }
 
-.music-sort-option.is-active::after {
-    content: '';
-    width: 7px;
-    height: 12px;
-    border-right: 2px solid currentColor;
-    border-bottom: 2px solid currentColor;
-    transform: rotate(45deg);
-}
-
-/* ============================================================
-   КАРТКА — glass стиль
-   ============================================================ */
 .music-row {
     display: grid;
     grid-template-columns: min(630px, 50%) 1fr;
@@ -301,9 +253,9 @@ body {
     background: rgba(255, 255, 255, 0.04);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid transparent;
 
-    /* Тінь */
+    /* РўС–РЅСЊ */
     box-shadow:
         0 4px 24px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -351,7 +303,7 @@ body {
     transform: translate(-50%, -50%) scale(0.78);
 }
 
-/* Hover — glass посилюється */
+/* Hover вЂ” glass РїРѕСЃРёР»СЋС”С‚СЊСЃСЏ */
 .music-row:hover {
     background: rgba(12, 14, 19, 0.72);
     border-color: #363d4f;
@@ -369,7 +321,7 @@ body {
 }
 
 /* ============================================================
-   ЛІВО — ОБКЛАДИНКА
+   Р›Р†Р’Рћ вЂ” РћР‘РљР›РђР”РРќРљРђ
    ============================================================ */
 .music-cover {
     position: relative;
@@ -392,9 +344,10 @@ body {
     inset: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
     display: block;
+    transform: scale(1.035);
     transition: transform 0.5s ease;
 }
 
@@ -402,7 +355,7 @@ body {
     transform: scale(1.06);
 }
 
-/* Затемнення справа — перехід до плеєра */
+/* Р—Р°С‚РµРјРЅРµРЅРЅСЏ СЃРїСЂР°РІР° вЂ” РїРµСЂРµС…С–Рґ РґРѕ РїР»РµС”СЂР° */
 .music-cover::after {
     content: '';
     position: absolute;
@@ -416,42 +369,57 @@ body {
 }
 
 /* ============================================================
-   ПРАВО — ПЛЕЄР
+   РџР РђР’Рћ вЂ” РџР›Р•Р„Р 
    ============================================================ */
 .music-player {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: 24px;
     padding: 40px 40px;
 
-    /* Glass права панель */
+    /* Glass РїСЂР°РІР° РїР°РЅРµР»СЊ */
     background: rgba(10, 10, 10, 0.45);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-left: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ---- Верхній бар "Listen here" ---- */
+/* ---- Р’РµСЂС…РЅС–Р№ Р±Р°СЂ "Listen here" ---- */
+.music-listen {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 4;
+}
+
 .music-player__bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 16px;
+    width: 100%;
+    min-height: 44px;
+    padding: 0 16px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(6, 8, 14, 0.7);
+    border: 1px solid rgba(74, 84, 106, 0.72);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     cursor: pointer;
-    transition: background 0.2s, border-color 0.2s;
+    color: inherit;
+    transition: background 0.2s, border-color 0.2s, border-radius 0.2s;
+}
+
+.music-player__bar[aria-expanded="true"] {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 .music-player__bar:hover {
-    background: rgba(255, 255, 255, 0.09);
-    border-color: #363d4f;
+    background: rgba(14, 17, 24, 0.94);
+    border-color: rgba(89, 101, 127, 0.88);
 }
 
 .music-player__bar-label {
@@ -475,7 +443,68 @@ body {
     transform: translateY(2px);
 }
 
-/* ---- Назва треку ---- */
+.music-player__bar[aria-expanded="true"] .music-player__bar-chevron {
+    opacity: 1;
+    transform: rotate(180deg);
+}
+
+.music-platform-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 6;
+    border: 1px solid rgba(74, 84, 106, 0.72);
+    border-top: 0;
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+    background: rgba(3, 5, 10, 0.98);
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.38);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transform-origin: top;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+}
+
+.music-platform-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.music-platform-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 42px;
+    padding: 0 16px;
+    border-top: 1px solid rgba(74, 84, 106, 0.42);
+    color: rgba(235, 239, 248, 0.82);
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+}
+
+.music-platform-link:hover {
+    background: #3f495d;
+    color: #fff;
+}
+
+.music-platform-link svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 auto;
+    fill: currentColor;
+}
+
+/* ---- РќР°Р·РІР° С‚СЂРµРєСѓ ---- */
 .music-player__title {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 20px;
@@ -487,6 +516,8 @@ body {
 
 /* ---- Spotify iframe ---- */
 .music-player__embed {
+    position: relative;
+    z-index: 1;
     border-radius: 12px;
     overflow: hidden;
     height: 296px;
@@ -571,12 +602,12 @@ body {
     .nav-links a { font-size: 22px; padding: 12px 40px; }
     .logo-wrap { width: 80%; max-width: none; }
 
-    /* Music — як у референсі */
+    /* Music вЂ” СЏРє Сѓ СЂРµС„РµСЂРµРЅСЃС– */
     .music-section { padding: 60px 0; }
     .music-inner { margin: 0; }
     .music-heading { font-size: 48px; margin-bottom: 48px; }
 
-    /* Картка — вертикальний стек */
+    /* РљР°СЂС‚РєР° вЂ” РІРµСЂС‚РёРєР°Р»СЊРЅРёР№ СЃС‚РµРє */
     .music-row {
         grid-template-columns: 1fr;
         height: auto;
@@ -617,7 +648,7 @@ body {
 
     .music-player { padding: 24px; gap: 12px; }
     .music-player__title { font-size: 14px; }
-    .music-player__bar { padding: 8px 12px; }
+    .music-player__bar { min-height: 40px; padding: 0 12px; }
     .music-player__bar-label { font-size: 12px; }
     .music-player__embed,
     .music-player__embed iframe { height: 152px; }
@@ -778,7 +809,7 @@ body {
     margin-bottom: 48px;
 }
 
-/* ---- Контейнер (кольори зберігаємо, layout з референсу) ---- */
+/* ---- РљРѕРЅС‚РµР№РЅРµСЂ (РєРѕР»СЊРѕСЂРё Р·Р±РµСЂС–РіР°С”РјРѕ, layout Р· СЂРµС„РµСЂРµРЅСЃСѓ) ---- */
 .about-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -787,8 +818,8 @@ body {
     overflow: hidden;
     background: linear-gradient(
     151deg, 
-    rgba(20, 23, 31, 0.2) 0%,   /* 80% непрозорості */
-    rgba(70, 79, 103, 0.2) 100% /* 80% непрозорості */
+    rgba(20, 23, 31, 0.2) 0%,   /* 80% РЅРµРїСЂРѕР·РѕСЂРѕСЃС‚С– */
+    rgba(70, 79, 103, 0.2) 100% /* 80% РЅРµРїСЂРѕР·РѕСЂРѕСЃС‚С– */
   );
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow:
@@ -806,7 +837,7 @@ body {
         inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-/* ---- Фото ---- */
+/* ---- Р¤РѕС‚Рѕ ---- */
 .about-image {
     position: relative;
     width: 100%;
@@ -835,7 +866,7 @@ body {
     transform: scale(1.03);
 }
 
-/* ---- Текст — заповнює праву колонку повністю ---- */
+/* ---- РўРµРєСЃС‚ вЂ” Р·Р°РїРѕРІРЅСЋС” РїСЂР°РІСѓ РєРѕР»РѕРЅРєСѓ РїРѕРІРЅС–СЃС‚СЋ ---- */
 .about-text {
     display: flex;
     flex-direction: column;
@@ -922,19 +953,19 @@ body {
   transition: transform 0.2s ease, box-shadow 0.4s ease;
 }
 
-/* текст поверх */
+/* С‚РµРєСЃС‚ РїРѕРІРµСЂС… */
 .learn-more-btn span {
   position: relative;
   z-index: 2;
-  text-decoration: none;  /* забрав підкреслення */
+  text-decoration: none;  /* Р·Р°Р±СЂР°РІ РїС–РґРєСЂРµСЃР»РµРЅРЅСЏ */
 }
 
-/* ефект як у cssbuttons-io, але прихований */
+/* РµС„РµРєС‚ СЏРє Сѓ cssbuttons-io, Р°Р»Рµ РїСЂРёС…РѕРІР°РЅРёР№ */
 .learn-more-btn::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -190%; /* повністю сховано!!! */
+  left: -190%; /* РїРѕРІРЅС–СЃС‚СЋ СЃС…РѕРІР°РЅРѕ!!! */
   width: 130%;
   height: 100%;
   background: #fff6c7;
@@ -944,13 +975,13 @@ body {
   z-index: 1;
 }
 
-/* при ховері анімація */
+/* РїСЂРё С…РѕРІРµСЂС– Р°РЅС–РјР°С†С–СЏ */
 .learn-more-btn:hover::before {
   left: 160%;
   transform: translateX(0) skew(30deg);
 }
 
-/* hover тінь */
+/* hover С‚С–РЅСЊ */
 .learn-more-btn:hover {
   box-shadow: 0 6px 26px rgba(249, 214, 101, 0.4);
 }
@@ -962,7 +993,7 @@ body {
 
 
 /* ============================================================
-   RESPONSIVE — VIDEO / SOUNDCLOUD / ABOUT
+   RESPONSIVE вЂ” VIDEO / SOUNDCLOUD / ABOUT
    ============================================================ */
 
 /* 1200px */
@@ -1104,7 +1135,7 @@ body {
   gap: 20px;
 }
 
-/* ---- Картка — стиль як about-container ---- */
+/* ---- РљР°СЂС‚РєР° вЂ” СЃС‚РёР»СЊ СЏРє about-container ---- */
 .service-card {
   position: relative;
   min-height: 200px;
@@ -1113,8 +1144,8 @@ body {
   overflow: hidden;
   background: linear-gradient(
     151deg, 
-    rgba(20, 23, 31, 0.2) 0%,   /* 80% непрозорості */
-    rgba(70, 79, 103, 0.2) 100% /* 80% непрозорості */
+    rgba(20, 23, 31, 0.2) 0%,   /* 80% РЅРµРїСЂРѕР·РѕСЂРѕСЃС‚С– */
+    rgba(70, 79, 103, 0.2) 100% /* 80% РЅРµРїСЂРѕР·РѕСЂРѕСЃС‚С– */
   );
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
@@ -1228,7 +1259,7 @@ body {
   box-sizing: border-box;
 }
 
-/* Left — heading + email info */
+/* Left вЂ” heading + email info */
 .contact-left {
   flex: 1 1 0;
   padding-right: 0;
@@ -1238,7 +1269,7 @@ body {
   gap: 45px;
 }
 
-/* Right — form only */
+/* Right вЂ” form only */
 .contact-right {
   flex: 0 1 550px;
   display: flex;
@@ -1266,8 +1297,8 @@ body {
   border-radius: 12px;
    background: linear-gradient(
     151deg, 
-    rgba(20, 23, 31, 0.2) 0%,   /* 80% непрозорості */
-    rgba(70, 79, 103, 0.2) 100% /* 80% непрозорості */
+    rgba(20, 23, 31, 0.2) 0%,   /* 80% РЅРµРїСЂРѕР·РѕСЂРѕСЃС‚С– */
+    rgba(70, 79, 103, 0.2) 100% /* 80% РЅРµРїСЂРѕР·РѕСЂРѕСЃС‚С– */
   );
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow:
@@ -1491,18 +1522,18 @@ body {
   overflow: hidden;
 }
 
-/* текст поверх */
+/* С‚РµРєСЃС‚ РїРѕРІРµСЂС… */
 .form-submit-btn span {
   position: relative;
   z-index: 2;
 }
 
-/* ефект як у cssbuttons-io, але прихований */
+/* РµС„РµРєС‚ СЏРє Сѓ cssbuttons-io, Р°Р»Рµ РїСЂРёС…РѕРІР°РЅРёР№ */
 .form-submit-btn::before {
  content: "";
   position: absolute;
   top: 0;
-  left: -190%; /* повністю сховано!!! */
+  left: -190%; /* РїРѕРІРЅС–СЃС‚СЋ СЃС…РѕРІР°РЅРѕ!!! */
   width: 130%;
   height: 100%;
   background: #fff6c7;
@@ -1512,13 +1543,13 @@ body {
   z-index: 1;
 }
 
-/* при ховері анімація */
+/* РїСЂРё С…РѕРІРµСЂС– Р°РЅС–РјР°С†С–СЏ */
 .form-submit-btn:hover::before {
   left: 160%;
   transform: translateX(0) skew(30deg);
 }
 
-/* hover тінь */
+/* hover С‚С–РЅСЊ */
 .learn-more-btn:hover {
   box-shadow: 0 6px 26px rgba(249, 214, 101, 0.4);
 }
