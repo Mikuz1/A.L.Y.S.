@@ -96,86 +96,12 @@
 
                     <h2 class="music-heading">Music</h2>
 
-                    <div class="music-toolbar">
-                        <button class="music-sort-toggle" type="button" aria-expanded="false" aria-controls="musicSortMenu">
-                            <span class="music-sort-label">Listen here</span>
-                            <svg class="music-player__bar-chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 6l4 4 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </button>
-                        <div class="music-sort-menu" id="musicSortMenu" hidden>
-                            <button type="button" class="music-sort-option is-active" data-sort="release-date">Release date</button>
-                            <button type="button" class="music-sort-option" data-sort="title">Title</button>
-                        </div>
+                    <div class="music-toolbar" role="tablist" aria-label="Music categories">
+                        <button class="music-tab is-active" type="button" role="tab" aria-selected="true" data-category="new">News</button>
+                        <button class="music-tab" type="button" role="tab" aria-selected="false" data-category="popular">Popular</button>
                     </div>
 
-                    <div class="music-list" data-spotify-releases>
-
-                        <div class="music-row" data-release-date="2024-01-01" data-release-title="Nicola Maddaloni — Mother's Love (A.L.Y.S. Remix)">
-                            <div class="music-cover music-cover--blue">
-                                <img
-                                    src="img/music1.jpg"
-                                    alt="Nicola Maddaloni — Mothers Love cover"
-                                    loading="lazy"
-                                    onerror="this.style.display='none'"
-                                >
-                            </div>
-                            <div class="music-player">
-                                <div class="music-player__bar">
-                                    <span class="music-player__bar-label">Listen here</span>
-                                    <svg class="music-player__bar-chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4 6l4 4 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <p class="music-player__title">Nicola Maddaloni — Mother's Love (A.L.Y.S. Remix)</p>
-                                <div class="music-player__embed">
-                                    <iframe
-                                        src="https://open.spotify.com/embed/track/6AHJn32WpLSRipoUodB2Md?utm_source=generator"
-                                        width="100%"
-                                        height="296"
-                                        frameborder="0"
-                                        allowfullscreen
-                                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                        loading="lazy"
-                                        title="Nicola Maddaloni — Mother's Love (A.L.Y.S. Remix) on Spotify">
-                                    </iframe>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="music-row" data-release-date="2024-01-01" data-release-title="A.L.Y.S. — The Next Stop (Original Mix)">
-                            <div class="music-cover music-cover--purple">
-                                <img
-                                    src="img/The next.png"
-                                    alt="A.L.Y.S. — The Next Stop cover"
-                                    loading="lazy"
-                                    onerror="this.style.display='none'"
-                                >
-                            </div>
-                            <div class="music-player">
-                                <div class="music-player__bar">
-                                    <span class="music-player__bar-label">Listen here</span>
-                                    <svg class="music-player__bar-chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4 6l4 4 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <p class="music-player__title">A.L.Y.S. — The Next Stop (Original Mix)</p>
-                                <div class="music-player__embed">
-                                    <iframe
-                                        src="https://open.spotify.com/embed/album/2SEwimTRNOrM4Kg5ZnV1ZJ?utm_source=generator"
-                                        width="100%"
-                                        height="296"
-                                        frameborder="0"
-                                        allowfullscreen
-                                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                        loading="lazy"
-                                        title="A.L.Y.S. — The Next Stop on Spotify">
-                                    </iframe>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+                    <div class="music-list" data-spotify-releases></div>
                 </div>
             </section>
     <!-- ===== Sound Cloud ===== -->
@@ -184,7 +110,7 @@
                 <div class="soundcloud-player-block">
 
                     <div class="soundcloud-player">
-                        <h3>A.L.Y.S — The Next Stop</h3>
+                        <h3>A.L.Y.S. - The Next Stop</h3>
                         <iframe
                             width="100%"
                             height="352"
@@ -193,12 +119,12 @@
                             allow="autoplay"
                             loading="lazy"
                             src="https://w.soundcloud.com/player/?url=https://soundcloud.com/alteregorecords/the-next-stop&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                            title="A.L.Y.S — The Next Stop on SoundCloud">
+                            title="A.L.Y.S. - The Next Stop on SoundCloud">
                         </iframe>
                     </div>
 
                     <div class="soundcloud-player">
-                        <h3>René Ablaze — White Sand (Extended Mix)</h3>
+                        <h3>René Ablaze - White Sand (Extended Mix)</h3>
                         <iframe
                             width="100%"
                             height="352"
@@ -207,7 +133,7 @@
                             allow="autoplay"
                             loading="lazy"
                             src="https://w.soundcloud.com/player/?url=https://soundcloud.com/rene-ablaze/white-sand-extended-mix&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                            title="René Ablaze — White Sand Extended Mix on SoundCloud">
+                            title="René Ablaze - White Sand Extended Mix on SoundCloud">
                         </iframe>
                     </div>
 
@@ -226,7 +152,7 @@
                     </div>
 
                     <div class="soundcloud-player">
-                        <h3>A.L.Y.S — Nostalgia (Extended Mix)</h3>
+                        <h3>A.L.Y.S. - Nostalgia (Extended Mix)</h3>
                         <iframe
                             width="100%"
                             height="352"
@@ -235,7 +161,7 @@
                             allow="autoplay"
                             loading="lazy"
                             src="https://w.soundcloud.com/player/?url=https://soundcloud.com/emergentmusic/alys-nostalgia-extended-mix-esk199&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                            title="A.L.Y.S — Nostalgia Extended Mix on SoundCloud">
+                            title="A.L.Y.S. - Nostalgia Extended Mix on SoundCloud">
                         </iframe>
                     </div>
 
@@ -249,8 +175,8 @@
 
                 <div class="youtube-player">
                     <iframe
-                        src="https://www.youtube.com/embed/vondEGjbRcU"
-                        title="A.L.Y.S — Video 1"
+                        src="https://www.youtube.com/embed/EaDn7SlckYA"
+                        title="Van Yorge - Deep Emotions (A.L.Y.S. Remix)"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen
                         loading="lazy">
@@ -259,8 +185,8 @@
 
                 <div class="youtube-player">
                     <iframe
-                        src="https://www.youtube.com/embed/tkEI58YV8Vo"
-                        title="A.L.Y.S — Video 2"
+                        src="https://www.youtube.com/embed/vondEGjbRcU"
+                        title="A.L.Y.S. - The Next Stop"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen
                         loading="lazy">
@@ -270,7 +196,7 @@
                 <div class="youtube-player">
                     <iframe
                         src="https://www.youtube.com/embed/GhhaBxysjXM"
-                        title="A.L.Y.S — Video 3"
+                        title="A.L.Y.S. - Video 3"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen
                         loading="lazy">
@@ -280,7 +206,7 @@
                 <div class="youtube-player">
                     <iframe
                         src="https://www.youtube.com/embed/VNYjkl2T6h0"
-                        title="A.L.Y.S — Video 4"
+                        title="A.L.Y.S. - Video 4"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen
                         loading="lazy">
@@ -297,7 +223,7 @@
                         <div class="about-image">
                             <img
                                 src="img/04.png"
-                                alt="A.L.Y.S. — Andriy Lushchak and Yorick Serkez"
+                                alt="A.L.Y.S. - Andriy Lushchak and Yorick Serkez"
                                 loading="lazy"
                             >
                         </div>
@@ -361,7 +287,7 @@
                                     </dotlottie-player>
                                 </div>
                             </div>
-                            <p class="service-card__text">We polish your track by adding clarity, depth, and the right loudness so it sounds professional on any speakers — from headphones to big club sound systems.</p>
+                            <p class="service-card__text">We polish your track by adding clarity, depth, and the right loudness so it sounds professional on any speakers - from headphones to big club sound systems.</p>
                         </div>
 
                         <div class="service-card">
@@ -378,7 +304,7 @@
                                     </dotlottie-player>
                                 </div>
                             </div>
-                            <p class="service-card__text">We create unique sound elements — synthesized leads, effects, bass lines, and atmospheric textures that make your music recognizable and expressive.</p>
+                            <p class="service-card__text">We create unique sound elements - synthesized leads, effects, bass lines, and atmospheric textures that make your music recognizable and expressive.</p>
                         </div>
 
                         <div class="service-card">
@@ -395,7 +321,7 @@
                                     </dotlottie-player>
                                 </div>
                             </div>
-                            <p class="service-card__text">We help structure a track — from an idea to a finished musical canvas with melodies, rhythms and harmonies according to the genre and your creative concept.</p>
+                            <p class="service-card__text">We help structure a track - from an idea to a finished musical canvas with melodies, rhythms and harmonies according to the genre and your creative concept.</p>
                         </div>
 
                         <div class="service-card">
@@ -585,7 +511,7 @@
                     </nav>
                 </div>
 
-                <p class="footer-copy">© 2026 A.L.Y.S. All rights reserved.</p>
+                <p class="footer-copy">В© 2026 A.L.Y.S. All rights reserved.</p>
             </div>
         </footer>
 
