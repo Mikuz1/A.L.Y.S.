@@ -1,4 +1,4 @@
-// ========== CONTACT FORM — FORMSPREE ==========
+// ========== CONTACT FORM вЂ” FORMSPREE ==========
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // --- UI: loading state ---
             if (submitBtn) {
                 submitBtn.disabled = true;
-                submitBtn.textContent = 'Sending…';
+                submitBtn.textContent = 'SendingвЂ¦';
             }
             showMessage('', '');
             
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 
                 if (response.ok) {
                     console.log('[DEBUG:Form] Success! Message sent');
-                    showMessage('✓ Message sent successfully!', 'success');
+                    showMessage('вњ“ Message sent successfully!', 'success');
                     contactForm.reset();
                     updatePhoneFlag('');
                 } else {
@@ -306,8 +306,213 @@ document.addEventListener('DOMContentLoaded', function () {
             icon.style.opacity = '1';
         });
     });
-    
-    // ---------- SMOOTH SCROLL ----------
+
+    // ---------- SPOTIFY RELEASES ----------
+    const musicList = document.querySelector('[data-spotify-releases]');
+    const musicTabs = Array.from(document.querySelectorAll('.music-tab'));
+    const musicCategories = {
+        popular: [
+            {
+                embedUrl: 'https://open.spotify.com/embed/track/6caTJxoCaQq5ARnTUhglwC?utm_source=generator',
+                image: 'img/arctic.webp',
+                title: 'A.L.Y.S. - Arctic Stream (Original Mix)',
+                platformUrls: {
+                    'Apple Music': 'https://music.apple.com/us/album/arctic-stream-single/1481019044?l=ru',
+                    SoundCloud: 'https://soundcloud.com/yeiskomp/alys-arctic-stream',
+                    YouTube: 'https://www.youtube.com/watch?v=iRz3KfNWXj0',
+                },
+            },
+            {
+                embedUrl: 'https://open.spotify.com/embed/track/7zG4Wr7ZkrBrdxPmbofOM2?utm_source=generator',
+                image: 'img/love.webp',
+                title: 'A.L.Y.S. - Love Deep Like Ocean (NyTiGen Radio Edit)',
+                platformUrls: {
+                    'Apple Music': 'https://music.apple.com/ru/album/love-deep-like-ocean-nytigen-remix-single/1514631475',
+                    SoundCloud: 'https://soundcloud.com/fyhofficial/find-your-harmony-radio-211',
+                    YouTube: 'https://www.youtube.com/watch?v=L-B18QUCQyc',
+                },
+            },
+            {
+                embedUrl: 'https://open.spotify.com/embed/track/5sgnrjGCxJn3Uw55IMtH2J?utm_source=generator',
+                image: 'img/deep.webp',
+                title: 'Van Yarge - Deep Emotions (A.L.Y.S. Extended Remix)',
+                platformUrls: {
+                    'Apple Music': 'https://music.apple.com/us/album/deep-emotions-ep/1833354769',
+                    SoundCloud: 'https://soundcloud.com/rene-ablaze/deep-emotions-a-l-y-s-remix',
+                    YouTube: 'https://www.youtube.com/watch?v=_43Zz0u22hM',
+                },
+            },
+        ],
+        new: [
+            {
+                embedUrl: 'https://open.spotify.com/embed/album/6Sat3HdtSZntOSc1GsUbNP?utm_source=generator',
+                image: 'img/beam of light.webp',
+                title: 'A.L.Y.S. - Beam of Light (Original Mix)',
+                platformUrls: {
+                    'Apple Music': 'https://music.apple.com/us/album/beam-of-light-single/1895130064',
+                    YouTube: 'https://www.youtube.com/watch?v=Pw_CHeIRHUo&list=OLAK5uy_k8DWPmDzS8TPKDzcctXemfcIclLq65vG0',
+                },
+            },
+            {
+                embedUrl: 'https://open.spotify.com/embed/album/5cahPFrYcyGB6GGdxzRihT?utm_source=generator',
+                image: 'img/violet.webp',
+                title: 'A.L.Y.S., Hidden Tigress - Violet Sky',
+                platformUrls: {
+                    'Apple Music': 'https://music.apple.com/us/album/violet-sky-ep/1882165626',
+                    SoundCloud: 'https://soundcloud.com/hidden_tigress_official21/a-l-y-s-hidden-tigress-violet',
+                    YouTube: 'https://www.youtube.com/watch?v=u9D_NwqatQk',
+                },
+            },
+        ],
+    };
+    let activeMusicCategory = 'new';
+    const defaultMusicPlatforms = [
+        {
+            icon: 'icon-apple-music',
+            label: 'Apple Music',
+            url: 'https://music.apple.com/ua/artist/a-l-y-s/307999757',
+        },
+        {
+            icon: 'icon-soundcloud',
+            label: 'SoundCloud',
+            url: 'https://soundcloud.com/djbaset',
+        },
+        {
+            icon: 'icon-youtube',
+            label: 'YouTube',
+            url: 'https://www.youtube.com/channel/UCfuHjSNZ_MP4-v3PHO7y9HQ',
+        },
+    ];
+
+    const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (char) => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+    }[char]));
+
+    const getSpotifyUrl = (embedUrl) => embedUrl
+        .replace('https://open.spotify.com/embed/', 'https://open.spotify.com/')
+        .split('?')[0];
+
+    const renderPlatformLinks = (release) => {
+        const platformUrls = release.platformUrls || {};
+        const platforms = [
+            {
+                icon: 'icon-spotify',
+                label: 'Spotify',
+                url: getSpotifyUrl(release.embedUrl),
+            },
+            ...defaultMusicPlatforms.map((platform) => ({
+                ...platform,
+                url: platformUrls[platform.label] || platform.url,
+            })),
+        ];
+
+        return platforms.map((platform) => `
+            <a class="music-platform-link" href="${escapeHtml(platform.url)}" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#${escapeHtml(platform.icon)}"></use></svg>
+                <span>${escapeHtml(platform.label)}</span>
+            </a>
+        `).join('');
+    };
+
+    const renderMusicCategory = () => {
+        if (!musicList) return;
+
+        const releases = musicCategories[activeMusicCategory] || [];
+
+        musicList.innerHTML = releases.map((release, index) => {
+            const iframeTitle = release.title ? `${release.title} on Spotify` : 'Spotify player';
+
+            return `
+            <div class="music-row" data-category="${escapeHtml(activeMusicCategory)}">
+                <div class="music-cover ${index % 2 === 0 ? 'music-cover--blue' : 'music-cover--purple'}">
+                    <img src="${escapeHtml(release.image)}" alt="${escapeHtml(release.title || 'Music')} cover" loading="lazy" onerror="this.style.display='none'">
+                </div>
+                <div class="music-player">
+                    <div class="music-listen">
+                        <button class="music-player__bar" type="button" aria-expanded="false">
+                            <span class="music-player__bar-label">Listen Here</span>
+                            <svg class="music-player__bar-chevron" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 6l4 4 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="music-platform-menu">
+                            ${renderPlatformLinks(release)}
+                        </div>
+                    </div>
+                    ${release.title ? `<p class="music-player__title">${escapeHtml(release.title)}</p>` : ''}
+                    <div class="music-player__embed">
+                        <iframe
+                            src="${escapeHtml(release.embedUrl)}"
+                            width="100%"
+                            height="296"
+                            frameborder="0"
+                            allowfullscreen
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"
+                            title="${escapeHtml(iframeTitle)}">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        `;
+        }).join('');
+    };
+
+    const closeMusicDropdowns = (exceptToggle = null) => {
+        if (!musicList) return;
+
+        musicList.querySelectorAll('.music-player__bar[aria-expanded="true"]').forEach((openToggle) => {
+            if (openToggle === exceptToggle) return;
+
+            const openPlayer = openToggle.closest('.music-player');
+            const openMenu = openPlayer ? openPlayer.querySelector('.music-platform-menu') : null;
+            openToggle.setAttribute('aria-expanded', 'false');
+            if (openMenu) openMenu.classList.remove('is-open');
+        });
+    };
+
+    if (musicList) {
+        musicList.addEventListener('click', (event) => {
+            const toggle = event.target.closest('.music-player__bar');
+            if (!toggle) return;
+
+            const player = toggle.closest('.music-player');
+            const menu = player ? player.querySelector('.music-platform-menu') : null;
+            if (!menu) return;
+
+            const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+            closeMusicDropdowns(toggle);
+
+            toggle.setAttribute('aria-expanded', String(!isOpen));
+            menu.classList.toggle('is-open', !isOpen);
+        });
+
+        document.addEventListener('click', (event) => {
+            if (event.target.closest('.music-listen')) return;
+
+            closeMusicDropdowns();
+        });
+    }
+
+    musicTabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+            closeMusicDropdowns();
+            activeMusicCategory = tab.dataset.category || 'new';
+            musicTabs.forEach((item) => {
+                const isActive = item === tab;
+                item.classList.toggle('is-active', isActive);
+                item.setAttribute('aria-selected', String(isActive));
+            });
+            renderMusicCategory();
+        });
+    });
+
+    renderMusicCategory();
+        // ---------- SMOOTH SCROLL ----------
     const header = document.querySelector('.header');
     const updateHeaderState = () => {
         if (!header) return;
