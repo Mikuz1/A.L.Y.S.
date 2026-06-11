@@ -561,7 +561,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setActiveNavLink(current.href);
     };
-
+ 
     updateActiveNavOnScroll();
     window.addEventListener('scroll', updateActiveNavOnScroll, { passive: true });
     window.addEventListener('resize', updateActiveNavOnScroll);
