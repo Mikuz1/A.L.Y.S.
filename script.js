@@ -589,7 +589,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-    
+     
     // ---------- BURGER MENU ----------
     const navLinks = document.getElementById('navLinks');
     const burger = document.querySelector('.burger');
