@@ -345,6 +345,15 @@ document.addEventListener('DOMContentLoaded', function () {
         ],
         new: [
             {
+                embedUrl: 'https://open.spotify.com/embed/album/6XpqVqZtJ4qLstTqddjRSe?utm_source=generator',
+                image: 'img/together.webp',
+                title: 'A.L.Y.S. & MIK.UZ - Together',
+                platformUrls: {
+                    'Apple Music': 'https://music.apple.com/us/album/together-single/6766399492',
+                    YouTube: 'https://www.youtube.com/watch?v=FJloVcSAkuU',
+                },
+            },
+            {
                 embedUrl: 'https://open.spotify.com/embed/album/6Sat3HdtSZntOSc1GsUbNP?utm_source=generator',
                 image: 'img/beam of light.webp',
                 title: 'A.L.Y.S. - Beam of Light (Original Mix)',
@@ -561,7 +570,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setActiveNavLink(current.href);
     };
- 
+
     updateActiveNavOnScroll();
     window.addEventListener('scroll', updateActiveNavOnScroll, { passive: true });
     window.addEventListener('resize', updateActiveNavOnScroll);
