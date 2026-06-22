@@ -1,525 +1,2074 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>A.L.Y.S. </title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght=300;400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="icon" type="image/svg+xml" href="/img/favicon_best.svg">
-        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon_best.png">
-        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-        
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="style_about.css">
-    </head>
-    <body>
-        <svg aria-hidden="true" focusable="false" style="display: none;">
-            <symbol id="icon-facebook" viewBox="0 0 24 24">
-                <rect x="3" y="3" width="18" height="18" rx="2.5" fill="currentColor"/>
-                <path d="M14.38 21v-6.95h2.34l.35-2.7h-2.69V9.62c0-.78.22-1.31 1.34-1.31h1.43V5.9c-.25-.03-1.1-.11-2.09-.11-2.07 0-3.48 1.26-3.48 3.58v1.98H9.24v2.7h2.34V21h2.8z" fill="#06080E"/>
-            </symbol>   
-            <symbol id="icon-youtube" viewBox="0 0 24 24">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </symbol>
-            <symbol id="icon-instagram" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-            </symbol>
-            <symbol id="icon-apple-music" viewBox="0 0 24 24">
-                <path d="M23.994 6.124a9.23 9.23 0 00-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a5.022 5.022 0 00-1.877-.726 10.496 10.496 0 00-1.564-.15c-.04-.003-.083-.01-.124-.013H5.986c-.152.01-.303.017-.455.026C4.786.07 4.043.15 3.34.428 2.004.958 1.04 1.88.475 3.208A4.93 4.93 0 00.09 4.829c-.01.16-.013.32-.013.48v13.382c0 .16.003.32.013.48.058 1.132.38 2.167 1.01 3.07.633.91 1.474 1.52 2.508 1.872.577.2 1.178.298 1.787.327.293.013.587.02.88.02h13.233c.293 0 .587-.007.88-.02.61-.03 1.21-.127 1.787-.327 1.034-.353 1.875-.963 2.508-1.872.63-.903.952-1.938 1.01-3.07.01-.16.013-.32.013-.48V5.31c0-.16-.003-.32-.013-.48zm-8.56 10.23c0 .522-.14 1.003-.456 1.413-.428.558-.998.832-1.698.846-.58.012-1.073-.195-1.486-.57-.427-.387-.638-.877-.641-1.45-.003-.583.2-1.07.603-1.466.4-.393.888-.61 1.448-.65.375-.026.727.046 1.062.196.043.02.084.04.126.06V8.79l-5.078.97V16.1c0 .52-.148.996-.465 1.405-.425.548-.99.816-1.682.83-.58.013-1.073-.195-1.488-.567-.43-.387-.642-.877-.645-1.453-.003-.583.2-1.07.6-1.466.4-.393.89-.61 1.45-.65.374-.026.726.047 1.06.198.044.02.085.04.127.06v-8.95l7.16-1.368v7.215z"/>
-            </symbol>
-            <symbol id="icon-beatport" viewBox="0 0 24 24">
-                <path d="M12 3.25a8.75 8.75 0 0 0-8.75 8.75v4.2c0 .9.73 1.64 1.64 1.64h2.18v-7.2H4.95A7.05 7.05 0 0 1 12 4.95a7.05 7.05 0 0 1 7.05 5.69h-2.12v7.2h2.18c.9 0 1.64-.73 1.64-1.64V12A8.75 8.75 0 0 0 12 3.25Zm-6.96 9.1h.35v3.79h-.35v-3.79Zm13.57 0h.35v3.79h-.35v-3.79ZM9.2 12.15a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2Zm5.6 0a2.6 2.6 0 1 0 0 5.2 2.6 2.6 0 0 0 0-5.2Zm-5.6 1.55a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1Zm5.6 0a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1Z"/>
-            </symbol>
-            <symbol id="icon-spotify" viewBox="0 0 24 24">
-                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
-            </symbol>
-            <symbol id="icon-soundcloud" viewBox="0 0 24 24">
-                <path d="M8.45 7.1c.45-.18.93-.27 1.44-.27a4.7 4.7 0 0 1 4.64 4.08 3.2 3.2 0 0 1 1.45-.35 3.36 3.36 0 0 1 0 6.72H8.8a.35.35 0 0 1-.35-.35V7.1Zm-2.06 2.33c.2 0 .36.16.36.36v7.13a.36.36 0 0 1-.72 0V9.79c0-.2.16-.36.36-.36Zm-1.5 1.03c.2 0 .36.16.36.36v6.1a.36.36 0 1 1-.72 0v-6.1c0-.2.16-.36.36-.36Zm-1.5 1.35c.2 0 .36.16.36.36v4.75a.36.36 0 1 1-.72 0v-4.75c0-.2.16-.36.36-.36Zm-1.48 1.32c.2 0 .36.16.36.36v3.42a.36.36 0 1 1-.72 0v-3.42c0-.2.16-.36.36-.36Z"/>
-            </symbol>
-        </svg>
-        <template id="socialLinksTemplate">
-            <a href="https://www.facebook.com/A.L.Y.S.Music" title="A.L.Y.S. on Facebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-btn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-facebook"></use></svg>
-            </a>
-            <a href="https://www.youtube.com/channel/UCfuHjSNZ_MP4-v3PHO7y9HQ" title="A.L.Y.S. on YouTube" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-btn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-youtube"></use></svg>
-            </a>
-            <a href="https://www.instagram.com/a.l.y.s.music/" title="A.L.Y.S. on Instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-btn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-instagram"></use></svg>
-            </a>
-            <a href="https://music.apple.com/ua/artist/a-l-y-s/307999757" title="A.L.Y.S. on Apple Music" target="_blank" rel="noopener noreferrer" aria-label="Apple Music" class="social-btn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-apple-music"></use></svg>
-            </a>
-            <a href="https://www.beatport.com/artist/a-l-y-s/741761" title="A.L.Y.S. on Beatport" target="_blank" rel="noopener noreferrer" aria-label="Beatport" class="social-btn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-beatport"></use></svg>
-            </a>
-            <a href="https://open.spotify.com/artist/1eaUcKK9BLeYVEA004CyKi" title="A.L.Y.S. on Spotify" target="_blank" rel="noopener noreferrer" aria-label="Spotify" class="social-btn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-spotify"></use></svg>
-            </a>
-            <a href="https://soundcloud.com/djbaset" title="A.L.Y.S. on SoundCloud" target="_blank" rel="noopener noreferrer" aria-label="SoundCloud" class="social-btn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-soundcloud"></use></svg>
-            </a>
-        </template>
-    <!-- ===== HERO ===== -->
-        <header class="hero">
-            <img src="img/hero.webp" alt="A.L.Y.S. 2026" class="hero-bg">
+  /* ============================================================
+    RESET & BASE
+    ============================================================ */
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
 
-            <nav class="header">
-                <a href="index.html" class="header-logo" aria-label="A.L.Y.S. home">
-                    <img src="/img/heder_logo.png" alt="A.L.Y.S. logo" class="header-logo__img" width="512" height="512">
-                </a>
-                <div class="burger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#music">Music</a></li>
-                    <li><a href="#video">Video</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="#service">Service</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+  html, body {
+      overflow-x: hidden;
+  }
 
-            <div class="logo-wrap">
-                <img src="img/logo_footer.svg" alt="Logo" class="logo">
-                <div class="hero-social-icons" aria-label="A.L.Y.S social links" data-social-links></div>
-            </div>
-            <a href="#music" class="scroll-down" aria-label="Scroll to music section">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-        </header>
-    <!-- ===== MUSIC ===== -->
-        <main>
-            <section class="music-section" id="music" aria-label="A.L.Y.S Music">
-                <div class="music-inner">
+  body {
+      background: #000;
+      color: #fafafa;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+  }
 
-                    <h2 class="music-heading">Music</h2>
+  /* ============================================================
+    HERO
+    ============================================================ */
+  .hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+  }
 
-                    <div class="music-toolbar" role="tablist" aria-label="Music categories">
-                        <button class="music-tab is-active" type="button" role="tab" aria-selected="true" data-category="new">News</button>
-                        <button class="music-tab" type="button" role="tab" aria-selected="false" data-category="popular">Popular</button>
-                    </div>
+  .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 35% 20%;
+      filter: brightness(0.55) contrast(1.1);
+  }
 
-                    <div class="music-list" data-spotify-releases></div>
-                </div>
-            </section>
-    <!-- ===== Sound Cloud ===== -->
-            <section class="soundcloud-section" id="soundcloud" aria-label="A.L.Y.S on SoundCloud">
-                <h2 class="soundcloud-heading">Sound Cloud</h2>
-                <div class="soundcloud-player-block">
+  .hero .scroll-down {
+      bottom: 120px;
+      z-index: 2;
+  }
 
-                    <div class="soundcloud-player">
-                        <h3>A.L.Y.S. - The Next Stop</h3>
-                        <iframe
-                            width="100%"
-                            height="352"
-                            scrolling="no"
-                            frameborder="no"
-                            allow="autoplay"
-                            loading="lazy"
-                            src="https://w.soundcloud.com/player/?url=https://soundcloud.com/alteregorecords/the-next-stop&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                            title="A.L.Y.S. - The Next Stop on SoundCloud">
-                        </iframe>
-                    </div>
+  /* ============================================================
+    NAV
+    ============================================================ */
+  .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      min-height: 84px;
+      padding: 24px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1000;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      box-shadow: none;
+      transition: padding 0.28s ease, min-height 0.28s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, backdrop-filter 0.25s ease;
+  }
 
-                    <div class="soundcloud-player">
-                        <h3>René Ablaze - White Sand (Extended Mix)</h3>
-                        <iframe
-                            width="100%"
-                            height="352"
-                            scrolling="no"
-                            frameborder="no"
-                            allow="autoplay"
-                            loading="lazy"
-                            src="https://w.soundcloud.com/player/?url=https://soundcloud.com/rene-ablaze/white-sand-extended-mix&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                            title="René Ablaze - White Sand Extended Mix on SoundCloud">
-                        </iframe>
-                    </div>
+  .header.is-scrolled {
+      min-height: 68px;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      background: rgba(149, 158, 182, 0.14);
+      border-bottom-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+  }
 
-                    <div class="soundcloud-player">
-                        <h3>Distant Past</h3>
-                        <iframe
-                            width="100%"
-                            height="352"
-                            scrolling="no"
-                            frameborder="no"
-                            allow="autoplay"
-                            loading="lazy"
-                            src="https://w.soundcloud.com/player/?url=https://soundcloud.com/synchronizedmuzik/distant-past&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                            title="Distant Past on SoundCloud">
-                        </iframe>
-                    </div>
+      .header-logo {
+        display: inline-flex;
+        align-items: center;
+        flex: 0 0 auto;
+        text-decoration: none;
+      }
 
-                    <div class="soundcloud-player">
-                        <h3>A.L.Y.S. - Nostalgia (Extended Mix)</h3>
-                        <iframe
-                            width="100%"
-                            height="352"
-                            scrolling="no"
-                            frameborder="no"
-                            allow="autoplay"
-                            loading="lazy"
-                            src="https://w.soundcloud.com/player/?url=https://soundcloud.com/emergentmusic/alys-nostalgia-extended-mix-esk199&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
-                            title="A.L.Y.S. - Nostalgia Extended Mix on SoundCloud">
-                        </iframe>
-                    </div>
+      .header-logo__img {
+        display: block;
+        height: 52px;
+        width: auto;
+        object-fit: contain;
+      }
 
-                </div>
-            </section>
+  .nav-links {
+      display: flex;
+      gap: 8px;
+      list-style: none;
+  }
 
-            <!-- ===== Video ===== -->
+    .nav-brand {
+      display: none;
+    }
 
-            <section class="youtube-section" id="video" aria-label="A.L.Y.S Videos">
-                <h2 class="youtube-heading">Video</h2>
+    .nav-brand__link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
 
-                <div class="youtube-player">
-                    <iframe
-                        src="https://www.youtube.com/embed/EaDn7SlckYA"
-                        title="Van Yorge - Deep Emotions (A.L.Y.S. Remix)"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
-                </div>
+    .nav-brand__img {
+      display: block;
+      width: auto;
+      height: 52px;
+      object-fit: contain;
+    }
 
-                <div class="youtube-player">
-                    <iframe
-                        src="https://www.youtube.com/embed/vondEGjbRcU"
-                        title="A.L.Y.S. - The Next Stop"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
-                </div>
+  .nav-links a {
+      color: #fafafa;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 8px 24px;
+      border-radius: 12px;
+      transition: opacity 0.2s;
+  }
 
-                <div class="youtube-player">
-                    <iframe
-                        src="https://www.youtube.com/embed/GhhaBxysjXM"
-                        title="A.L.Y.S. - Video 3"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
-                </div>
+  .nav-links a.active {
+      color: #f9d665;
+      text-decoration: underline;
+      text-decoration-color: #f9d665;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+  }
 
-                <div class="youtube-player">
-                    <iframe
-                        src="https://www.youtube.com/embed/VNYjkl2T6h0"
-                        title="A.L.Y.S. - Video 4"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
-                </div>
-            </section>
+  .nav-links a:hover {
+      opacity: 0.7;
+  }
 
-            <!-- ===== About ===== -->
-            <section class="about-section" id="about" aria-label="About A.L.Y.S.">
-                <div class="about-inner">
-                    <h2 class="about-heading">About</h2>
+  .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 200;
+  }
 
-                    <div class="about-container">
-                        <div class="about-image">
-                            <img
-                                src="img/about_2.webp"
-                                alt="A.L.Y.S. - Andriy Lushchak and Yorick Serkez"
-                                loading="lazy"
-                            >
-                        </div>
+  .burger span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      background: #fafafa;
+      border-radius: 3px;
+      transition: all 0.3s;
+  }
 
-                        <div class="about-text">
-                            <h3 class="about-title">A.L.Y.S.</h3>
+  .burger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .burger.active span:nth-child(2) { opacity: 0; }
+  .burger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-                            <p class="about-description">
-                                A.L.Y.S. is an electronic music project from Ukraine, created by Andriy Lushchak, also known as Andy Suncraft, and Yorick Serkez, also known as DJ Base-T. 
-                                Built around a shared passion for melodic electronic music, the project combines emotional songwriting, atmospheric sound design, and the driving energy of modern dance music.
-                            </p>
+  /* ============================================================
+    LOGO
+    ============================================================ */
+  .logo-wrap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 42%;
+      max-width: 760px;
+  }
 
-                            <p class="about-description">
-                            The sound of A.L.Y.S. moves between EDM, progressive house, electro house,  progressive trance anduplifting trance with a strong focus on melody, emotion, and memorable vocal hooks. 
-                            Rather than following one fixed formula, A.L.Y.S. aims to create tracks that feel both powerful on the dancefloor and meaningful to the listener. 
-                            Their music often blends uplifting chord progressions, warm synth layers, energetic grooves, and carefully crafted arrangements designed for both club and radio formats.
-                            </p>
-    <a href="about.html" class="learn-more-btn">Learn More</a>
-                        
-                        </div>
-                    </div>
-                </div>
-            </section>
+  .logo {
+      width: 100%;
+      height: auto;
+      mix-blend-mode: screen;
+  }
 
-    <!-- ===== Service ===== -->        
-            <section class="services" id="service" aria-label="A.L.Y.S. Services">
-                <div class="services__container">
+  .hero-social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 40px;
+  }
 
-                    <h2 class="services__title">Service</h2>
+  .hero-social-icons a {
+      color: rgba(250, 250, 250, 0.85);
+      text-decoration: none;
+      transition: color 0.25s ease, transform 0.25s ease;
+  }
 
-                    <div class="services__grid">
+  .hero-social-icons .social-btn {
+      width: 24px;
+      height: 24px;
+  }
 
-                        <div class="service-card">
-                            <div class="service-card__head">
-                                <h3 class="service-card__title">Mixing</h3>
-                                <div class="service-card__icon">
-                                    <dotlottie-player
-                                        src="animations/mixing.json"
-                                        background="transparent"
-                                        speed="1"
-                                        loop
-                                        autoplay
-                                        style="width:46px;height:46px;">
-                                    </dotlottie-player>
-                                </div>
-                            </div>
-                            <p class="service-card__text">We work on each track in detail - balancing levels, working with panning, EQ and effects to ensure that all elements of the track sound clean, clear and harmonious. This is a key stage to ensure that the track is ready for mastering.</p>
-                        </div>
+  .hero-social-icons a:hover {
+      color: #fff;
+      transform: translateY(-3px);
+  }
 
-                        <div class="service-card">
-                            <div class="service-card__head">
-                                <h3 class="service-card__title">Mastering</h3>
-                                <div class="service-card__icon">
-                                    <dotlottie-player
-                                        src="animations/master-new.json"
-                                        background="transparent"
-                                        speed="1"
-                                        loop
-                                        autoplay
-                                        style="width:46px;height:46px;">
-                                    </dotlottie-player>
-                                </div>
-                            </div>
-                            <p class="service-card__text">We polish your track by adding clarity, depth, and the right loudness so it sounds professional on any speakers - from headphones to big club sound systems.</p>
-                        </div>
+  /* ============================================================
+    MUSIC SECTION
+    ============================================================ */
+  .music-section {
+      background: #000;
+      padding: 100px 0 120px;
+  }
 
-                        <div class="service-card">
-                            <div class="service-card__head">
-                                <h3 class="service-card__title">Sound Design</h3>
-                                <div class="service-card__icon">
-                                    <dotlottie-player
-                                        src="animations/sound-design.json"
-                                        background="transparent"
-                                        speed="1"
-                                        loop
-                                        autoplay
-                                        style="width:46px;height:46px;">
-                                    </dotlottie-player>
-                                </div>
-                            </div>
-                            <p class="service-card__text">We create unique sound elements - synthesized leads, effects, bass lines, and atmospheric textures that make your music recognizable and expressive.</p>
-                        </div>
+  .music-inner {
+      max-width: 1280px;
+      margin: 0 max(80px, calc((100% - 1280px) / 2));
+  }
 
-                        <div class="service-card">
-                            <div class="service-card__head">
-                                <h3 class="service-card__title">Music Production</h3>
-                                <div class="service-card__icon">
-                                    <dotlottie-player
-                                        src="animations/music-production.json"
-                                        background="transparent"
-                                        speed="1"
-                                        loop
-                                        autoplay
-                                        style="width:46px;height:46px;">
-                                    </dotlottie-player>
-                                </div>
-                            </div>
-                            <p class="service-card__text">We help structure a track - from an idea to a finished musical canvas with melodies, rhythms and harmonies according to the genre and your creative concept.</p>
-                        </div>
+  .music-heading {
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #fafafa;
+      margin-bottom: 48px;
+  }
 
-                        <div class="service-card">
-                            <div class="service-card__head">
-                                <h3 class="service-card__title">Remix & DJ Edit</h3>
-                                <div class="service-card__icon">
-                                    <dotlottie-player
-                                        src="animations/remix.json"
-                                        background="transparent"
-                                        speed="1"
-                                        loop
-                                        autoplay
-                                        style="width:46px;height:46px;">
-                                    </dotlottie-player>
-                                </div>
-                            </div>
-                            <p class="service-card__text">We rework tracks for a DJ set or remix them for a club sound, preserving the energy and drive of dance music.</p>
-                        </div>
+  /* ---- РЎРїРёСЃРѕРє РєР°СЂС‚РѕРє ---- */
+  .music-list {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+  }
 
-                        <div class="service-card">
-                            <div class="service-card__head">
-                                <h3 class="service-card__title">Vocal Processing</h3>
-                                <div class="service-card__icon">
-                                    <dotlottie-player
-                                        src="animations/vocal-5.json"
-                                        background="transparent"
-                                        speed="1"
-                                        loop
-                                        autoplay
-                                        style="width:46px;height:46px;">
-                                    </dotlottie-player>
-                                </div>
-                            </div>
-                            <p class="service-card__text">We clean and tune your vocal recordings for a smooth, polished sound. We add harmonies, effects, and spatial depth to fit the track's energy. Your vocals become clear, expressive, and ready for a professional release.</p>
-                        </div>
+  .music-toolbar {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 16px;
+  }
 
-                    </div>
-                </div>
-            </section>
+  .music-tab {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 132px;
+      padding: 10px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      color: rgba(255, 255, 255, 0.8);
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+  }
 
-            <!-- ===== Contact & Request Form ===== -->
-    <section class="contact-section" id="contact" aria-label="Contact & Request Form">
-    <div class="contact-layout">
+  .music-tab:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: #363d4f;
+      color: #F9EABE;
+  }
 
-        <!-- Left: heading + email -->
-        <div class="contact-left">
-        <h2 class="contact-heading">Contact &amp;<br>Request Form</h2>
+  .music-tab.is-active {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: #363d4f;
+      color: #f9d665;
+  }
 
-        <!-- Email info -->
-        <div class="contact-email-block">
-            <h3 class="contact-info-title">Email</h3>
-            <a href="mailto:alysproduction@gmail.com" class="contact-info-label">alysproduction@gmail.com</a>
-        </div>
-        </div>
+  .music-row {
+      display: grid;
+      grid-template-columns: min(630px, 50%) 1fr;
+      height: 630px;
+      position: relative;
+      isolation: isolate;
+      border-radius: 12px;
+      overflow: hidden;
 
-        <!-- Right: form only -->
-        <div class="contact-right">
+      /* Glass */
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid transparent;
 
-        <!-- Form card -->
-        <div class="contact-form-wrapper">
-            <form class="contact-form" id="contactForm">
+      /* РўС–РЅСЊ */
+      box-shadow:
+          0 4px 24px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
 
-            <div class="form-group">
-                <label for="request-service" class="form-label">Request Service <span class="form-required">*</span></label>
-                <div class="form-select-wrapper">
-                <select id="request-service" name="request-service" class="form-control form-select">
-                    <option value="">Select a service</option>
-                    <option value="mixing">Mixing</option>
-                    <option value="mastering">Mastering</option>
-                    <option value="sound-design">Sound Design</option>
-                    <option value="music-production">Music Production</option>
-                    <option value="remix">Remix & DJ Edit</option>
-                    <option value="vocal">Vocal Processing</option>
-                </select>
-                
-                </div>
-            </div>
+      transition:
+          border-color 0.35s ease,
+          box-shadow 0.35s ease,
+          transform 0.35s ease,
+          background 0.35s ease;
+  }
 
-            <div class="form-row form-row--name-phone">
-                <div class="form-group">
-                <label for="name" class="form-label">Full Name <span class="form-required">*</span></label>
-                <input type="text" id="name" name="name" placeholder="Full Name" class="form-control">
-                </div>
-                <div class="form-group">
-                <label for="phone" class="form-label">Phone</label>
-                <div class="form-phone-group">
-                    <div style="position: relative; flex: 0 0 40px;">
-                    <img id="phoneFlag" src="https://flagcdn.com/w40/ua.png" alt="Ukraine flag"
-                        style="width:40px;height:28px;border-radius:4px;object-fit:cover;border:1px solid rgba(255,255,255,0.1);">
-                    </div>
-                    <input type="tel" id="phone" placeholder="+380 XX XXX XX XX" class="form-control form-phone-input">
-                </div>
-                </div>
-            </div>
+  .music-row::before,
+  .music-row::after {
+      content: '';
+      position: absolute;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.45s ease, transform 0.45s ease;
+  }
 
-            <div class="form-row">
-                <div class="form-group">
-                <label for="email" class="form-label">Email <span class="form-required">*</span></label>
-                <input type="email" id="email" name="email" placeholder="example@email.com" class="form-control">
-                </div>
-                <div class="form-group">
-                <label for="genre" class="form-label">Genre</label>
-                <div class="form-select-wrapper">
-                    <select id="genre" name="genre" class="form-control form-select">
-                    <option value="">Select a genre</option>
-                    <option value="edm">EDM</option>
-                    <option value="house">House</option>
-                    <option value="trance">Trance</option>
-                    <option value="techno">Techno</option>
-                    <option value="other">Other</option>
-                    </select>
-                    
-                </div>
-                </div>
-            </div>
+  .music-row::before {
+      inset: -1px;
+      z-index: 0;
+      background: linear-gradient(
+          115deg,
+          rgba(14, 16, 22, 0.96) 0%,
+          #23262e 100%
+      );
+  }
 
-            <div class="form-row">
-                <div class="form-group">
-                <label for="professional-class" class="form-label">Professional Class</label>
-                <div class="form-select-wrapper">
-                    <select id="professional-class" name="professional-class" class="form-control form-select">
-                    <option value="">Select your experience</option>
-                    <option value="beginner">Beginner</option>
-                    <option value="intermediate">Intermediate</option>
-                    <option value="advanced">Advanced</option>
-                    <option value="professional">Professional</option>
-                    </select>
-                    
-                </div>
-                </div>
-                <div class="form-group">
-                <label for="professional-time" class="form-label">Professional Time</label>
-                <div class="form-select-wrapper">
-                    <select id="professional-time" name="professional-time" class="form-control form-select">
-                    <option value="">Select your availability</option>
-                    <option value="immediate">Immediate</option>
-                    <option value="1-week">Within 1 week</option>
-                    <option value="2-weeks">Within 2 weeks</option>
-                    <option value="flexible">Flexible</option>
-                    </select>
-                    
-                </div>
-                </div>
-            </div>
+  .music-row::after {
+      width: min(42vw, 520px);
+      height: min(42vw, 520px);
+      left: 50%;
+      top: 50%;
+      z-index: 0;
+      border-radius: 999px;
+      background: radial-gradient(
+          circle,
+          rgba(59, 67, 88, 0.54) 0%,
+          rgba(20, 23, 31, 0.34) 42%,
+          rgba(20, 23, 31, 0) 72%
+      );
+      filter: blur(28px);
+      transform: translate(-50%, -50%) scale(0.78);
+  }
 
-            <div class="form-group">
-                <label for="message" class="form-label">Message</label>
-                <textarea id="message" name="message" placeholder="Tell us about your project..."
-                class="form-control form-textarea" rows="4"></textarea>
-            </div>
+  /* Hover вЂ” glass РїРѕСЃРёР»СЋС”С‚СЊСЃСЏ */
+  .music-row:hover {
+      background: rgba(12, 14, 19, 0.72);
+      border-color: #363d4f;
+      
+      transform: none;
+  }
 
-            <button type="submit" class="form-submit-btn"><span>Send Message</span></button>
-            <div id="formMessage" class="form-message"></div>
+  .music-row:hover::before,
+  .music-row:hover::after {
+      opacity: 1;
+  }
 
-            </form>
-        </div>
+  .music-row:hover::after {
+      transform: translate(-50%, -50%) scale(1);
+  }
 
-        </div><!-- /.contact-right -->
-    </div><!-- /.contact-layout -->
+  /* ============================================================
+    Р›Р†Р’Рћ вЂ” РћР‘РљР›РђР”РРќРљРђ
+    ============================================================ */
+  .music-cover {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+  }
 
-    </section>
+  .music-cover--blue {
+      background: linear-gradient(160deg, #0c2b7a 0%, #1756cc 55%, #0a1f5c 100%);
+  }
 
-        </main>
+  .music-cover--purple {
+      background: linear-gradient(160deg, #32096a 0%, #7a1fd4 55%, #1c0a5a 100%);
+  }
 
-        <!-- ===== FOOTER ===== -->
-        <footer class="artist-footer">
-            <!-- Blur effects on sides -->
-            <div class="footer-blur footer-blur--left"></div>
-            <div class="footer-blur footer-blur--right"></div>
-            
-            <div class="footer-content">
-                <div class="footer-main">
-                    <p class="follow-text">Follow us</p>
-                    
-                    <div class="social-icons" data-social-links></div>
+  .music-cover img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transform: scale(1.035);
+      transition: transform 0.5s ease;
+  }
 
-                    <div class="footer-logo-box">
-                        <img src="img/Logo_3 1.png" alt="A.L.Y.S. Logo" class="footer-logo" loading="lazy">
-                    </div>
+  .music-row:hover .music-cover img {
+      transform: scale(1.06);
+  }
 
-                    <nav class="footer-menu">
-                        <a href="#music">Music</a>
-                        <a href="#video">Video</a>
-                        <a href="#about">About</a>
-                        <a href="#service">Service</a>
-                        <a href="#contact">Contact</a>
-                    </nav>
-                </div>
+  /* Р—Р°С‚РµРјРЅРµРЅРЅСЏ СЃРїСЂР°РІР° вЂ” РїРµСЂРµС…С–Рґ РґРѕ РїР»РµС”СЂР° */
+  .music-cover::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+          to right,
+          transparent 50%,
+          rgba(0, 0, 0, 0.35) 100%
+      );
+      pointer-events: none;
+  }
 
-                <p class="footer-copy">© 2026 A.L.Y.S. All rights reserved.</p>
-            </div>
-        </footer>
+  /* ============================================================
+    РџР РђР’Рћ вЂ” РџР›Р•Р„Р 
+    ============================================================ */
+  .music-player {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 24px;
+      padding: 40px 40px;
 
-        <script src="script.js"></script>
-    <script src="custom-select.js"></script>
-    </body>
-    </html>
+      /* Glass РїСЂР°РІР° РїР°РЅРµР»СЊ */
+      background: rgba(10, 10, 10, 0.45);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-left: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* ---- Р’РµСЂС…РЅС–Р№ Р±Р°СЂ "Listen here" ---- */
+  .music-listen {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 4;
+  }
+
+  .music-player__bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 44px;
+      padding: 0 16px;
+      border-radius: 10px;
+      background: rgba(6, 8, 14, 0.7);
+      border: 1px solid rgba(74, 84, 106, 0.72);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      cursor: pointer;
+      color: inherit;
+      transition: background 0.2s, border-color 0.2s, border-radius 0.2s;
+  }
+
+  .music-player__bar[aria-expanded="true"] {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+
+  .music-player__bar:hover {
+      background: rgba(14, 17, 24, 0.94);
+      border-color: rgba(89, 101, 127, 0.88);
+  }
+
+  .music-player__bar-label {
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.8);
+  }
+
+  .music-player__bar-chevron {
+      width: 16px;
+      height: 16px;
+      opacity: 0.6;
+      flex-shrink: 0;
+      transition: opacity 0.2s, transform 0.2s;
+  }
+
+  .music-player__bar:hover .music-player__bar-chevron {
+      opacity: 1;
+      transform: translateY(2px);
+  }
+
+  .music-player__bar[aria-expanded="true"] .music-player__bar-chevron {
+      opacity: 1;
+      transform: rotate(180deg);
+  }
+
+  .music-platform-menu {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      z-index: 6;
+      border: 1px solid rgba(74, 84, 106, 0.72);
+      border-top: 0;
+      border-radius: 0 0 10px 10px;
+      overflow: hidden;
+      background: rgba(3, 5, 10, 0.98);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.38);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transform-origin: top;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+  }
+
+  .music-platform-menu.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+  }
+
+  .music-platform-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-top: 1px solid rgba(74, 84, 106, 0.42);
+      color: rgba(235, 239, 248, 0.82);
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+  }
+
+  .music-platform-link:hover {
+      background: #3f495d;
+      color: #fff;
+  }
+
+  .music-platform-link svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      fill: currentColor;
+  }
+
+  /* ---- РќР°Р·РІР° С‚СЂРµРєСѓ ---- */
+  .music-player__title {
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
+      color: #fafafa;
+  }
+
+  /* ---- Spotify iframe ---- */
+  .music-player__embed {
+      position: relative;
+      z-index: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 296px;
+      flex-shrink: 0;
+  }
+
+  .music-player__embed iframe {
+      display: block;
+      border-radius: 12px;
+      width: 100%;
+      height: 296px;
+  }
+
+  /* ============================================================
+    RESPONSIVE
+    ============================================================ */
+
+  /* 1200px */
+  @media (max-width: 1200px) {
+      .logo-wrap { width: 70%; max-width: none; }
+
+      .music-inner { margin: 0 80px; }
+      .music-heading { font-size: 56px; }
+
+      .music-row {
+          grid-template-columns: min(480px, 50%) 1fr;
+          height: 480px;
+      }
+      .music-cover { width: 100%; height: 100%; }
+      .music-player { padding: 28px 36px; }
+      .music-player__title { font-size: 18px; }
+  }
+
+  /* 1024px */
+  @media (max-width: 1024px) {
+      .music-inner { margin: 0 80px; }
+      .music-heading { font-size: 48px; margin-bottom: 40px; }
+
+      .music-row {
+          grid-template-columns: min(340px, 46%) 1fr;
+          height: 340px;
+      }
+      .music-cover { width: 100%; height: 100%; }
+      .music-player { padding: 24px; gap: 14px; }
+      .music-player__title { font-size: 15px; }
+      .music-player__embed,
+      .music-player__embed iframe { height: 152px; }
+  }
+
+  /* 768px */
+  @media (max-width: 768px) {
+      body { overflow-x: hidden; }
+
+      /* Hero */
+      .hero { height: 100svh; }
+      .hero-bg { object-position: 20% center; }
+      .header {
+          min-height: 68px;
+          padding: 20px;
+      }
+      .header.is-scrolled {
+          min-height: 60px;
+          padding: 16px 20px;
+      }
+      .header-logo {
+        display: inline-flex;
+      }
+      .header-logo__img {
+        height: 40px;
+      }
+      .burger { display: flex; }
+
+      .nav-links {
+          display: none;
+          position: fixed;
+          top: 0; left: 0;
+          width: 100%; height: 100vh;
+          background: rgba(0, 0, 0, 0.88);
+          backdrop-filter: blur(18px);
+          padding: 0;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+          z-index: 150;
+      }
+      .nav-links.open { display: flex; }
+        .nav-brand {
+          display: block;
+          position: absolute;
+          top: 18px;
+          left: 20px;
+          z-index: 2;
+        }
+        .nav-brand__img {
+          height: 40px;
+        }
+      .nav-links a { font-size: 22px; padding: 0px 0px; }
+
+      /* Music вЂ” СЏРє Сѓ СЂРµС„РµСЂРµРЅСЃС– */
+      .music-section { padding: 60px 0; }
+      .music-inner { margin: 0; }
+      .music-heading { font-size: 48px; margin-bottom: 48px; }
+
+      /* РљР°СЂС‚РєР° вЂ” РІРµСЂС‚РёРєР°Р»СЊРЅРёР№ СЃС‚РµРє */
+      .music-row {
+          grid-template-columns: 1fr;
+          height: auto;
+          min-height: unset;
+          transform: none !important;
+          border-radius: 0px;
+      }
+      .music-cover {
+          width: 100%;
+          height: auto;
+          aspect-ratio: 1 / 1;
+      }
+      .music-cover::after {
+          background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.4) 100%);
+      }
+      .music-player {
+          border-left: none;
+          border-top: 1px solid rgba(255, 255, 255, 0.08);
+          padding: 24px 24px;
+          gap: 14px;
+      }
+      .music-player__title { font-size: 16px; }
+      .music-player__embed,
+      .music-player__embed iframe { height: 152px; }
+  }
+
+  /* 480px */
+  @media (max-width: 480px) {
+      .hero-bg { object-position: 25% center; }
+      .logo-wrap { width: 90%; max-width: none; }
+      .header-logo__img { height: 34px; }
+
+      .music-section { padding: 40px 0; }
+      .music-inner { margin: 0 16px; }
+      .music-heading { font-size: 28px; line-height: 120%; }
+
+      .music-list { gap: 24px; }
+      .music-row { border-radius: 12px; }
+
+      .music-player { padding: 24px; gap: 12px; }
+      .music-player__title { font-size: 14px; }
+      .music-player__bar { min-height: 40px; padding: 0 12px; }
+      .music-player__bar-label { font-size: 12px; }
+      .music-player__embed,
+      .music-player__embed iframe { height: 152px; }
+  }
+
+  /* 320px */
+  @media (max-width: 320px) {
+      .music-heading { font-size: 24px; }
+      .music-player { padding: 24px; }
+      .nav-brand {
+      top: 16px;
+      left: 16px;
+      }
+      .nav-brand__img {
+        height: 34px;
+      }
+      .music-player__title { font-size: 13px; }
+      .music-player__embed,
+      .music-player__embed iframe { height: 240px; }
+  }
+
+  /* ============================================================
+    VIDEO SECTION
+    ============================================================ */
+  .youtube-section {
+      background: #000;
+      width: min(calc(100% - 160px), 1280px);
+      margin: 0 auto;
+      padding: 112px 0 120px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+  }
+
+  .youtube-heading {
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #fafafa;
+      margin-bottom: 0;
+      grid-column: 1 / -1;
+  }
+
+  .youtube-player {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .youtube-player:hover {
+      border-color: #363d4f;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.55);
+  }
+
+  .youtube-player iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 16px;
+  }
+
+  /* ============================================================
+    SOUNDCLOUD SECTION
+    ============================================================ */
+  .soundcloud-section {
+      background: #000;
+      width: min(calc(100% - 160px), 1280px);
+      margin: 0 auto;
+      padding: 112px 0 120px;
+  }
+
+  .soundcloud-heading {
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: #fafafa;
+      margin-bottom: 48px;
+  }
+
+  .soundcloud-player-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+  }
+
+  .soundcloud-player {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow:
+          0 4px 24px rgba(0, 0, 0, 0.4),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      padding: 24px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .soundcloud-player:hover {
+      border-color: #363d4f;
+      box-shadow:
+          0 8px 40px rgba(0, 0, 0, 0.55),
+          inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  }
+
+  .soundcloud-player h3 {
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #fafafa;
+      letter-spacing: -0.01em;
+  }
+
+  .soundcloud-player iframe {
+      display: block;
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 12px;
+      flex-shrink: 0;
+  }
+
+  /* ============================================================
+    ABOUT SECTION
+    ============================================================ */
+  .about-section {
+      background: #000;
+      padding: 40px 0 40px;
+  }
+
+
+
+  .about-inner {
+      max-width: 1280px;
+      margin: 0 max(80px, calc((100% - 1280px) / 2));
+  }
+
+  .about-heading {
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: 0em;
+      color: #fafafa;
+      margin-bottom: 48px;
+  }
+
+  /* ---- РљРѕРЅС‚РµР№РЅРµСЂ (РєРѕР»СЊРѕСЂРё Р·Р±РµСЂС–РіР°С”РјРѕ, layout Р· СЂРµС„РµСЂРµРЅСЃСѓ) ---- */
+  .about-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(
+      151deg, 
+      rgba(20, 23, 31, 0.2) 0%,   /* 80% РЅРµРїСЂРѕР·РѕСЂРѕСЃС‚С– */
+      rgba(70, 79, 103, 0.2) 100% /* 80% РЅРµРїСЂРѕР·РѕСЂРѕСЃС‚С– */
+    );
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow:
+          0 4px 24px rgba(0, 0, 0, 0.5),
+          inset 0 1px 0 rgba(255, 255, 255, 0.07);
+      min-height: 631px;
+      transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .about-container:hover {
+      border-color: #363d4f;
+      box-shadow:
+          0 8px 40px rgba(0, 0, 0, 0.65),
+          0 0 0 1px rgba(255, 255, 255, 0.1),
+          inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  /* ---- Р¤РѕС‚Рѕ ---- */
+  .about-image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 500px;
+      overflow: hidden;
+  }
+
+  .about-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      
+      transition: filter 0.4s ease, transform 0.5s ease;
+  }
+
+  .about-image img:hover {
+      filter: grayscale(0%);
+  }
+
+  .about-container:hover .about-image img {
+      transform: scale(1.03);
+  }
+
+  /* ---- РўРµРєСЃС‚ вЂ” Р·Р°РїРѕРІРЅСЋС” РїСЂР°РІСѓ РєРѕР»РѕРЅРєСѓ РїРѕРІРЅС–СЃС‚СЋ ---- */
+  .about-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 24px;
+      padding: 40px;
+      min-width: 0;
+      border-left: 1px solid rgba(255, 255, 255, 0.07);
+      background: rgba(10, 12, 18, 0.25);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+  }
+
+  .about-title {
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1.2;
+      color: #FAFAFA;
+      margin-bottom: 0;
+  }
+
+  .about-description {
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.35;
+      color: #F3F4F6;
+      margin-bottom: 0;
+      letter-spacing: 0;
+  }
+
+  .about-releases__heading {
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #fafafa;
+      margin-bottom: 12px;
+  }
+
+  .about-releases__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+  }
+
+  .about-releases__list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.55;
+      color: #f3f4f6;
+  }
+
+  .release-dot {
+      flex-shrink: 0;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(180, 180, 210, 0.6);
+      margin-top: 7px;
+  }
+
+  .learn-more-btn {
+    position: relative;
+    display: inline-block;
+    width: fit-content;
+    margin-top: 24px;
+    padding: 12px 24px;
+    background-color: #F9D665;
+    color: #06080E;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.4s ease;
+  }
+
+  /* С‚РµРєСЃС‚ РїРѕРІРµСЂС… */
+  .learn-more-btn span {
+    position: relative;
+    z-index: 2;
+    text-decoration: none;  /* Р·Р°Р±СЂР°РІ РїС–РґРєСЂРµСЃР»РµРЅРЅСЏ */
+  }
+
+  /* РµС„РµРєС‚ СЏРє Сѓ cssbuttons-io, Р°Р»Рµ РїСЂРёС…РѕРІР°РЅРёР№ */
+  .learn-more-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -190%; /* РїРѕРІРЅС–СЃС‚СЋ СЃС…РѕРІР°РЅРѕ!!! */
+    width: 130%;
+    height: 100%;
+    background: #fff6c7;
+    transform: skew(30deg);
+    transition: left 0.50s cubic-bezier(0.3, 1, 0.8, 1),
+                transform 0.50s cubic-bezier(0.3, 1, 0.8, 1);
+    z-index: 1;
+  }
+
+  /* РїСЂРё С…РѕРІРµСЂС– Р°РЅС–РјР°С†С–СЏ */
+  .learn-more-btn:hover::before {
+    left: 160%;
+    transform: translateX(0) skew(30deg);
+  }
+
+  /* hover С‚С–РЅСЊ */
+  .learn-more-btn:hover {
+    box-shadow: 0 6px 26px rgba(249, 214, 101, 0.4);
+  }
+
+  /* active */
+  .learn-more-btn:active {
+    transform: scale(0.95);
+  }
+
+
+  /* ============================================================
+    RESPONSIVE вЂ” VIDEO / SOUNDCLOUD / ABOUT
+    ============================================================ */
+
+  /* 1200px */
+  @media (max-width: 1200px) {
+      .youtube-section   { width: 100%; max-width: none; margin: 0; padding: 80px 80px 100px; gap: 32px; }
+      .youtube-heading   { font-size: 56px; }
+
+      .soundcloud-section  { width: 100%; max-width: none; margin: 0; padding: 80px 80px 100px; }
+      .soundcloud-heading  { font-size: 56px; }
+      .soundcloud-player-block { gap: 32px; }
+      .soundcloud-player h3    { font-size: 16px; }
+      .soundcloud-player iframe{ height: 280px; }
+
+      .about-inner   { margin: 0 80px; }
+      .about-heading { font-size: 56px; }
+      .about-heading { font-size: 56px; }
+      .about-container { min-height: 500px; }
+      .about-title { font-size: 38px; }
+      .about-title   { font-size: 40px; }
+  }
+
+  /* 1024px */
+  @media (max-width: 1024px) {
+      .youtube-section   { padding: 60px 80px 80px; gap: 24px; }
+      .youtube-heading   { font-size: 48px; }
+
+      .soundcloud-section  { padding: 60px 80px 80px; }
+      .soundcloud-heading  { font-size: 48px; }
+      .soundcloud-player-block { gap: 24px; }
+      .soundcloud-player   { padding: 24px; }
+      .soundcloud-player iframe{ height: 220px; }
+
+      .about-inner   { margin: 0 80px; }
+      .about-heading { font-size: 48px; margin-bottom: 40px; }
+      .about-heading { font-size: 48px; margin-bottom: 40px; }
+      .about-container {
+          grid-template-columns: 1fr;
+          min-height: unset;
+      }
+      .about-image { min-height: 380px; }
+      .about-text {
+          border-left: none;
+          border-top: 1px solid rgba(255,255,255,0.07);
+          padding: 40px;
+          gap: 20px;
+      }
+      .about-title { font-size: 36px; }
+      .about-title   { font-size: 32px; }
+  }
+
+  /* 768px */
+  @media (max-width: 768px) {
+      .youtube-section   { padding: 60px 24px 80px; grid-template-columns: 1fr; gap: 24px; }
+      .youtube-heading   { font-size: 48px; margin-bottom: 8px; }
+      .youtube-player    { border-radius: 12px; }
+      .youtube-player iframe { border-radius: 12px; }
+
+      .soundcloud-section  { padding: 60px 24px 80px; }
+      .soundcloud-heading  { font-size: 48px; margin-bottom: 32px; }
+      .soundcloud-player-block { grid-template-columns: 1fr; gap: 24px; }
+      .soundcloud-player   { padding: 24px; border-radius: 12px; }
+      .soundcloud-player h3    { font-size: 15px; }
+      .soundcloud-player iframe{ height: 220px; border-radius: 10px; }
+
+      .about-inner   { margin: 0 24px; }
+      .about-heading { font-size: 48px; margin-bottom: 32px; }
+      .about-container { border-radius: 12px; }
+      .about-image { min-height: 300px; }
+      .about-text { padding: 24px 24px; gap: 12px; }
+      .about-title { font-size: 30px; }
+      .about-releases__heading { font-size: 16px; }
+      .about-releases__list li { font-size: 12px; }
+      .about-title   { font-size: 28px; }
+      .about-releases__heading { font-size: 16px; }
+      .about-releases__list li { font-size: 12px; }
+  }
+
+  /* 480px */
+  @media (max-width: 480px) {
+      .youtube-section   { padding: 40px 16px 60px; gap: 20px; }
+      .youtube-heading   { font-size: 28px; line-height: 1.2; }
+
+      .soundcloud-section  { padding: 40px 16px 60px; }
+      .soundcloud-heading  { font-size: 28px; line-height: 1.2; margin-bottom: 24px; }
+      .soundcloud-player-block { gap: 20px; }
+      .soundcloud-player   { padding: 24px; }
+      .soundcloud-player h3    { font-size: 14px; }
+      .soundcloud-player iframe{ height: 200px; }
+
+      .about-inner   { margin: 0 16px; }
+      .about-heading { font-size: 28px; line-height: 1.2; }
+      .about-container { border-radius: 12px; }
+      .about-image { min-height: 240px; }
+      .about-text { padding: 24px; gap: 12px; }
+      .about-title { font-size: 24px; }
+      .about-releases__heading { font-size: 14px; margin-bottom: 8px; }
+      .about-releases__list li { font-size: 12px; }
+      .about-title   { font-size: 24px; }
+      .about-releases__heading { font-size: 14px; margin-bottom: 8px; }
+      .about-releases__list li { font-size: 12px; }
+  }
+
+  /* 320px */
+  @media (max-width: 320px) {
+      .youtube-heading   { font-size: 24px; }
+      .soundcloud-heading{ font-size: 24px; }
+      .soundcloud-player iframe{ height: 180px; }
+      .about-heading     { font-size: 24px; }
+      .about-image       { height: 200px; }
+      .about-title       { font-size: 20px; }
+  }
+
+  /* ============================================================
+    SERVICE SECTION
+    ============================================================ */
+  .services {
+    background: #000;
+    padding: 112px 0 120px;
+  }
+
+  .services__container {
+    max-width: 1280px;
+    margin: 0 max(80px, calc((100% - 1280px) / 2));
+  }
+
+  .services__title {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 1.1;
+    
+    color: #fafafa;
+    margin-bottom: 48px;
+  }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  /* ---- РљР°СЂС‚РєР° вЂ” СЃС‚РёР»СЊ СЏРє about-container ---- */
+  .service-card {
+    position: relative;
+    min-height: 200px;
+    padding: 24px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: linear-gradient(
+      151deg, 
+      rgba(20, 23, 31, 0.2) 0%,   /* 80% РЅРµРїСЂРѕР·РѕСЂРѕСЃС‚С– */
+      rgba(70, 79, 103, 0.2) 100% /* 80% РЅРµРїСЂРѕР·РѕСЂРѕСЃС‚С– */
+    );
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .service-card:hover {
+    border-color: #363d4f;
+    box-shadow:
+      0 8px 40px rgba(0, 0, 0, 0.65),
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .service-card__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .service-card__title {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #FAFAFA;
+  }
+
+  .service-card__icon {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .service-card__text {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.55;
+    color: #F3F4F6;
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 1200px) {
+    .services__container { margin: 0 80px; }
+    .services__title     { font-size: 56px; }
+  }
+
+  @media (max-width: 1080px) {
+    .services__grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    .services            { padding: 60px 0 80px; }
+    .services__container { margin: 0 24px; }
+    .services__title     { font-size: 48px; margin-bottom: 32px; }
+    .service-card        { min-height: unset; padding: 24px; border-radius: 12px; }
+    .service-card__title { font-size: 18px; }
+  }
+
+  @media (max-width: 480px) {
+    .services            { padding: 40px 0 60px; }
+    .services__container { margin: 0 16px; }
+    .services__title     { font-size: 28px; line-height: 1.2; margin-bottom: 24px; }
+    .services__grid      { grid-template-columns: 1fr; gap: 14px; }
+    .service-card        { padding: 24px; }
+    .service-card__title { font-size: 17px; }
+    .service-card__text  { font-size: 13px; }
+  }
+
+  @media (max-width: 320px) {
+    .services__title     { font-size: 24px; }
+    .service-card__title { font-size: 15px; }
+  }
+
+  /* ============================================================
+    CONTACT SECTION
+    ============================================================ */
+  .contact-section {
+    position: relative;
+    width: 100%;
+    height: 986px;
+    margin: 112px 0 224px;
+    background-image: url('img/Sections form.png');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Two-column layout wrapper */
+  .contact-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: min(calc(100% - 160px), 1280px);
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0;
+    gap: 48px;
+    box-sizing: border-box;
+  }
+
+  /* Left вЂ” heading + email info */
+  .contact-left {
+    flex: 1 1 0;
+    padding-right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 45px;
+  }
+
+  /* Right вЂ” form only */
+  .contact-right {
+    flex: 0 1 550px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 550px;
+  }
+
+  .contact-heading {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-align: left;
+    letter-spacing: -0.02em;
+    color: #fafafa;
+    margin: 0;
+  }
+    
+  /* ---- Contact Form ---- */
+  .contact-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    border-radius: 12px;
+    background: linear-gradient(
+      151deg, 
+      rgba(20, 23, 31, 0.2) 0%,   /* 80% РЅРµРїСЂРѕР·РѕСЂРѕСЃС‚С– */
+      rgba(70, 79, 103, 0.2) 100% /* 80% РЅРµРїСЂРѕР·РѕСЂРѕСЃС‚С– */
+    );
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+
+  .contact-form-wrapper:hover {
+    border-color: #363d4f;
+    
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .form-label {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #f3f4f6;
+    letter-spacing: 0.01em;
+  }
+
+  .form-required {
+    color: #ff6b6b;
+  }
+
+  .form-control {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fafafa;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .form-control:hover {
+    border-color: #363d4f;
+  }
+
+  .form-control:focus {
+    outline: none;
+    background: transparent;
+    border-color: #363d4f;
+    box-shadow: 0 0 0 3px rgba(54, 61, 79, 0.22);
+  }
+
+  /* ---- Custom Select Dropdown ---- */
+  .form-select-wrapper {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .form-select {
+    width: 100%;
+    padding: 12px 14px;
+    padding-right: 40px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: #fafafa;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    transition: all 0.3s ease;
+    background-image: none;
+  }
+
+  .form-select:hover {
+    background: transparent;
+    border-color: #363d4f;
+  }
+
+  .form-select:focus {
+    outline: none;
+    background: transparent;
+    border-color: #363d4f;
+  }
+
+  /* Dropdown Icon */
+  .dropdown-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    width: 20px;
+    height: 20px;
+    pointer-events: none;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .form-select-wrapper:focus-within .dropdown-icon {
+    transform: translateY(-50%) rotate(180deg);
+    color: #fff;
+  }
+
+  .dropdown-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+  }
+
+  /* Phone Flag Display */
+  #phoneFlag {
+    display: block;
+    width: 40px;
+    height: 28px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+  }
+
+  #phoneFlag:hover {
+    transform: scale(1.05);
+  }
+
+  .form-phone-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .form-phone-input {
+    padding: 12px 14px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Select option styling */
+  .form-select option {
+    background-color: #0a0a0a;
+    color: #fafafa;
+    padding: 12px 10px;
+    border: none;
+    outline: none;
+    background-image: none;
+    accent-color: transparent;
+  }
+
+  .form-select option:checked {
+    background-color: #1a1a1a !important;
+    background-image: none !important;
+    color: #fafafa !important;
+  }
+
+  .form-select option:-moz-checked {
+    background-color: #1a1a1a !important;
+    background-image: none !important;
+    color: #fafafa !important;
+  }
+
+  .form-select option:hover {
+    background-color: #1a1a1a;
+    background-image: none;
+    color: #fafafa;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 100px;
+    padding: 12px 14px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .form-submit-btn {
+    position: relative;
+    padding: 12px 24px;
+    background-color: #F9D665;
+    color: #06080E;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    margin-top: 12px;
+    overflow: hidden;
+  }
+
+  /* С‚РµРєСЃС‚ РїРѕРІРµСЂС… */
+  .form-submit-btn span {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* РµС„РµРєС‚ СЏРє Сѓ cssbuttons-io, Р°Р»Рµ РїСЂРёС…РѕРІР°РЅРёР№ */
+  .form-submit-btn::before {
+  content: "";
+    position: absolute;
+    top: 0;
+    left: -190%; /* РїРѕРІРЅС–СЃС‚СЋ СЃС…РѕРІР°РЅРѕ!!! */
+    width: 130%;
+    height: 100%;
+    background: #fff6c7;
+    transform: skew(30deg);
+    transition: left 0.50s cubic-bezier(0.3, 1, 0.8, 1),
+                transform 0.50s cubic-bezier(0.3, 1, 0.8, 1);
+    z-index: 1;
+  }
+
+  /* РїСЂРё С…РѕРІРµСЂС– Р°РЅС–РјР°С†С–СЏ */
+  .form-submit-btn:hover::before {
+    left: 160%;
+    transform: translateX(0) skew(30deg);
+  }
+
+  /* hover С‚С–РЅСЊ */
+  .learn-more-btn:hover {
+    box-shadow: 0 6px 26px rgba(249, 214, 101, 0.4);
+  }
+
+  .form-submit-btn:active {
+    transform: scale(0.95);
+  }
+
+  .form-message {
+    margin-top: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    min-height: 20px;
+    color: #ff5555;
+  }
+
+  /* Success Toast */
+  #formSuccessToast {
+    animation: slideIn 0.4s ease;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .toast-checkmark {
+    flex-shrink: 0;
+  }
+
+  /* ---- Contact Info Cards ---- */
+  .contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+    justify-content: flex-start;
+  }
+
+  .contact-info-card {
+    padding: 24px;
+    border-radius: 12px;
+    background: rgba(13, 15, 20, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    transition: border-color 0.35s ease, box-shadow 0.35s ease;
+    text-align: left;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 280px;
+  }
+
+  .contact-info-card:hover {
+    border-color: #363d4f;
+    box-shadow:
+      0 8px 40px rgba(0, 0, 0, 0.65),
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  }
+
+  .contact-info-title {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #fafafa;
+    margin-bottom: 0;
+  }
+
+  .contact-info-label {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #fafafa;
+    text-decoration: none;
+    line-height: 1.4;
+    transition: color 0.2s;
+  }
+
+  .contact-info-label:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .contact-info-text {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* ---- Contact Responsive ---- */
+  @media (max-width: 1200px) {
+    .contact-layout { width: calc(100% - 160px); }
+    .contact-heading { font-size: 48px; }
+    .contact-right { max-width: 500px; }
+    .contact-form { gap: 18px; }
+    .form-row--name-phone { grid-template-columns: 1fr; gap: 18px; }
+  }
+
+  @media (max-width: 1024px) {
+    .contact-section { height: auto; min-height: 986px; }
+    .contact-layout { width: calc(100% - 160px); gap: 40px; }
+    .contact-heading { font-size: 40px; }
+    .contact-right { max-width: 460px; }
+    .contact-form-wrapper { padding: 28px; }
+  }
+
+  @media (max-width: 768px) {
+    .contact-section { height: auto; min-height: unset; margin: 60px 0 80px; padding: 48px 0; }
+    .contact-layout {
+      flex-direction: column;
+      width: calc(100% - 48px);
+      gap: 32px;
+    }
+    .contact-left { padding-right: 0; }
+    .contact-right { max-width: 100%; width: 100%; }
+    .contact-heading { font-size: 36px; }
+    .contact-form-wrapper { padding: 24px; }
+    .form-row { grid-template-columns: 1fr; gap: 16px; }
+  }
+
+  @media (max-width: 480px) {
+    .contact-section { margin: 40px 0 60px; padding: 40px 0; }
+    .contact-layout { width: calc(100% - 32px); gap: 24px; }
+    .contact-heading { font-size: 28px; line-height: 1.2; }
+    .contact-form { gap: 16px; }
+    .form-row { gap: 14px; }
+    .contact-info-card { padding: 24px; min-width: unset; width: 100%; }
+    .contact-info-title { font-size: 24px; }
+    .contact-info-label { font-size: 14px; }
+    .form-control { padding: 10px 12px; font-size: 14px; }
+    .form-submit-btn { padding: 10px 24px; font-size: 13px; }
+  }
+
+  @media (max-width: 320px) {
+    .contact-heading { font-size: 24px; }
+    .contact-info-card { padding: 24px; }
+    .form-phone-group { gap: 8px; }
+  }
+
+  /* ============================================================
+    FOOTER
+    ============================================================ */
+  .artist-footer {
+    --footer-height: clamp(500px, 47.75vw, 573px);
+    --footer-top-space: clamp(40px, 5vw, 64px);
+    --footer-follow-social-gap: clamp(14px, 1.8vw, 24px);
+    --footer-social-logo-gap: clamp(28px, 6vw, 80px);
+    --footer-logo-menu-gap: clamp(24px, 4vw, 48px);
+    --footer-menu-copy-gap: clamp(36px, 5vw, 64px);
+    --footer-copy-bottom: 12px;
+    --footer-copy-line: 16px;
+    position: relative;
+    width: 100%;
+    height: var(--footer-height);
+    min-height: var(--footer-height);
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /* ---- Blur effects on sides ---- */
+  .footer-blur {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.8;
+    filter: blur(120px);
+    background: linear-gradient(
+      135deg,
+      rgba(20, 23, 31, 0.8) 0%,
+      rgba(59, 67, 88, 0.8) 100%
+    );
+  }
+
+  .footer-blur--left {
+    left: -18%;
+    top: -10%;
+    transform: rotate(-18deg);
+  }
+
+  .footer-blur--right {
+    right: -18%;
+    bottom: -12%;
+    transform: rotate(-47deg);
+  }
+
+  /* ---- Footer Content ---- */
+  .footer-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 40px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    height: 100%;
+  }
+
+  /* ---- Footer Main (centered content) ---- */
+  .footer-main {
+    position: absolute;
+    top: var(--footer-top-space);
+    right: 40px;
+    bottom: calc(var(--footer-copy-bottom) + var(--footer-copy-line) + var(--footer-menu-copy-gap));
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ---- Follow Us Text ---- */
+  .follow-text {
+    color: rgba(250, 250, 250, 0.8);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 var(--footer-follow-social-gap);
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  /* ---- Social Icons ---- */
+  .social-icons {
+    display: flex;
+    gap: clamp(18px, 2.5vw, 36px);
+    align-items: center;
+    height: 20px;
+    margin-bottom: var(--footer-social-logo-gap);
+  }
+
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(16px, 1.25vw, 20px);
+    height: clamp(16px, 1.25vw, 20px);
+  }
+
+  .social-icons a {
+    color: rgba(250, 250, 250, 0.75);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.25s ease, transform 0.25s ease;
+  }
+
+  .social-btn svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    fill: currentColor;
+    color: #ffffff;
+    transform-origin: center;
+  }
+
+  .social-btn[aria-label="Facebook"] svg {
+    transform: scale(1.12);
+  }
+
+  .social-btn[aria-label="YouTube"] svg {
+    transform: scale(1.04);
+  }
+
+  .social-btn[aria-label="Beatport"] svg {
+    transform: scale(1.16);
+  }
+
+  .social-btn[aria-label="SoundCloud"] svg {
+    transform: scale(1.22);
+  }
+
+  .social-icons a:hover {
+    color: #fff;
+    transform: translateY(-3px);
+  }
+
+  /* ---- Footer Logo ---- */
+  .footer-logo-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex: 1 1 auto;
+    min-height: 0;
+    margin-bottom: var(--footer-logo-menu-gap);
+  }
+
+  .footer-logo {
+    width: clamp(280px, 48vw, 739px);
+    height: auto;
+    max-width: 80vw;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ---- Footer Menu ---- */
+  .footer-menu {
+    display: flex;
+    gap: clamp(16px, 3vw, 48px);
+    align-items: center;
+    min-height: 16px;
+  }
+
+  .footer-menu a {
+    color: rgba(250, 250, 250, 0.7);
+    text-decoration: none;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    transition: color 0.25s ease;
+  }
+
+  .footer-menu a:hover {
+    color: #fff;
+  }
+
+  /* ---- Footer Copy ---- */
+  .footer-copy {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: var(--footer-copy-bottom);
+    z-index: 2;
+    color: rgba(250, 250, 250, 0.7);
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: var(--footer-copy-line);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* ============================================================
+    FOOTER RESPONSIVE
+    ============================================================ */
+  @media (max-width: 1200px) {
+    .footer-content { padding: 0 40px; }
+  }
+
+  @media (max-width: 768px) {
+    .artist-footer {
+      --footer-top-space: 44px;
+      --footer-social-logo-gap: clamp(28px, 5vw, 48px);
+      --footer-logo-menu-gap: 28px;
+      --footer-menu-copy-gap: 40px;
+    }
+    .footer-content { padding: 0 24px; }
+    .footer-main { left: 24px; right: 24px; }
+    .follow-text { font-size: 16px; line-height: 22px; }
+    .footer-menu { gap: 24px; flex-wrap: wrap; justify-content: center; }
+    .footer-menu a { font-size: 14px; }
+  }
+
+  @media (max-width: 748px) {
+    .artist-footer {
+      height: auto;
+      min-height: 0;
+      align-items: stretch;
+      padding: 40px 0 12px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      padding: 0 20px;
+    }
+
+    .footer-main {
+      position: static;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .follow-text {
+      margin-bottom: 16px;
+      font-size: 14px;
+      line-height: 20px;
+      letter-spacing: 1.4px;
+    }
+
+    .social-icons {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px 24px;
+      height: auto;
+      margin-bottom: 40px;
+    }
+
+    .social-btn {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer-logo-box {
+      flex: 0 0 auto;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      width: min(300px, 72vw);
+      max-width: 100%;
+      max-height: none;
+    }
+
+    .footer-menu {
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 24px;
+      max-width: none;
+      min-height: 0;
+    }
+
+    .footer-menu a {
+      padding: 8px 2px;
+      font-size: 13px;
+      line-height: 16px;
+      white-space: nowrap;
+    }
+
+    .footer-copy {
+      position: static;
+      margin-top: 40px;
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .artist-footer {
+      padding-top: 40px;
+    }
+    .footer-blur { width: 50%; }
+    .footer-content { padding: 0 16px; }
+    .social-icons { margin-bottom: 40px; }
+    .footer-logo-box { margin-bottom: 40px; }
+    .footer-logo { width: min(280px, 74vw); }
+    .footer-menu { gap: 16px; }
+    .footer-menu a { padding: 6px 1px; font-size: 12px; }
+    .footer-copy { margin-top: 40px; }
+  }
+  
