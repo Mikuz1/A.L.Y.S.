@@ -96,6 +96,23 @@
       list-style: none;
   }
 
+    .nav-brand {
+      display: none;
+    }
+
+    .nav-brand__link {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-brand__img {
+      display: block;
+      width: auto;
+      height: 52px;
+      object-fit: contain;
+    }
+
   .nav-links a {
       color: #fafafa;
       font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -596,6 +613,9 @@
           min-height: 60px;
           padding: 16px 20px;
       }
+      .header-logo {
+        display: inline-flex;
+      }
       .header-logo__img {
         height: 40px;
       }
@@ -608,7 +628,7 @@
           width: 100%; height: 100vh;
           background: rgba(0, 0, 0, 0.88);
           backdrop-filter: blur(18px);
-          -webkit-backdrop-filter: blur(18px);
+          padding: 0;
           flex-direction: column;
           justify-content: center;
           align-items: center;
@@ -616,8 +636,17 @@
           z-index: 150;
       }
       .nav-links.open { display: flex; }
-      .nav-links a { font-size: 22px; padding: 12px 40px; }
-      .logo-wrap { width: 80%; max-width: none; }
+        .nav-brand {
+          display: block;
+          position: absolute;
+          top: 18px;
+          left: 20px;
+          z-index: 2;
+        }
+        .nav-brand__img {
+          height: 40px;
+        }
+      .nav-links a { font-size: 22px; padding: 0px 0px; }
 
       /* Music вЂ” СЏРє Сѓ СЂРµС„РµСЂРµРЅСЃС– */
       .music-section { padding: 60px 0; }
@@ -630,7 +659,7 @@
           height: auto;
           min-height: unset;
           transform: none !important;
-          border-radius: 12px;
+          border-radius: 0px;
       }
       .music-cover {
           width: 100%;
@@ -655,9 +684,7 @@
   @media (max-width: 480px) {
       .hero-bg { object-position: 25% center; }
       .logo-wrap { width: 90%; max-width: none; }
-      .header-logo__img {
-        height: 34px;
-      }
+      .header-logo__img { height: 34px; }
 
       .music-section { padding: 40px 0; }
       .music-inner { margin: 0 16px; }
@@ -678,6 +705,13 @@
   @media (max-width: 320px) {
       .music-heading { font-size: 24px; }
       .music-player { padding: 24px; }
+      .nav-brand {
+      top: 16px;
+      left: 16px;
+      }
+      .nav-brand__img {
+        height: 34px;
+      }
       .music-player__title { font-size: 13px; }
       .music-player__embed,
       .music-player__embed iframe { height: 240px; }
