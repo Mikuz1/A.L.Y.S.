@@ -650,8 +650,12 @@
 
       /* Music вЂ” СЏРє Сѓ СЂРµС„РµСЂРµРЅСЃС– */
       .music-section { padding: 60px 0; }
-      .music-inner { margin: 0; }
+        .music-inner { margin: 0 24px; }
       .music-heading { font-size: 48px; margin-bottom: 48px; }
+        .music-toolbar {
+          justify-content: flex-start;
+          margin-bottom: 48px;
+        }
 
       /* РљР°СЂС‚РєР° вЂ” РІРµСЂС‚РёРєР°Р»СЊРЅРёР№ СЃС‚РµРє */
       .music-row {
