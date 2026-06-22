@@ -547,7 +547,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { href: 'index.html', element: document.querySelector('.hero') },
         { href: '#music', element: document.getElementById('music') },
         { href: '#video', element: document.getElementById('video') },
-        { href: 'about.html', element: document.getElementById('about') },
+        { href: '#about', element: document.getElementById('about') },
         { href: '#service', element: document.getElementById('service') },
         { href: '#contact', element: document.getElementById('contact') },
     ].filter(item => item.element && headerNavLinks.some(link => link.getAttribute('href') === item.href));
