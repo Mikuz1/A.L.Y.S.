@@ -402,6 +402,12 @@
       transform: scale(1.06);
   }
 
+  .music-cover img[src="img/Keep.jpg"],
+  .music-row:hover .music-cover img[src="img/Keep.jpg"] {
+      object-fit: contain;
+      transform: none;
+  }
+
   /* Р—Р°С‚РµРјРЅРµРЅРЅСЏ СЃРїСЂР°РІР° вЂ” РїРµСЂРµС…С–Рґ РґРѕ РїР»РµС”СЂР° */
   .music-cover::after {
       content: '';

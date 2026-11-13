@@ -346,6 +346,7 @@ document.addEventListener('DOMContentLoaded', function () {
         new: [
             {
                 embedUrl: 'https://open.spotify.com/embed/album/00RW3wK2zxKfkxG5cgtpPM?utm_source=generator',
+                image: 'img/Keep.jpg',
                 title: 'A.L.Y.S. - Keep On Movin',
             },
             {
