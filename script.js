@@ -1,4 +1,4 @@
-// ========== CONTACT FORM вЂ” FORMSPREE ==========
+﻿// ========== CONTACT FORM вЂ” FORMSPREE ==========
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -345,6 +345,10 @@ document.addEventListener('DOMContentLoaded', function () {
         ],
         new: [
             {
+                embedUrl: 'https://open.spotify.com/embed/album/00RW3wK2zxKfkxG5cgtpPM?utm_source=generator',
+                title: 'A.L.Y.S. - Keep On Movin',
+            },
+            {
                 embedUrl: 'https://open.spotify.com/embed/album/6XpqVqZtJ4qLstTqddjRSe?utm_source=generator',
                 image: 'img/together.webp',
                 title: 'A.L.Y.S. & MIK.UZ - Together',
@@ -438,7 +442,9 @@ document.addEventListener('DOMContentLoaded', function () {
             return `
             <div class="music-row" data-category="${escapeHtml(activeMusicCategory)}">
                 <div class="music-cover ${index % 2 === 0 ? 'music-cover--blue' : 'music-cover--purple'}">
-                    <img src="${escapeHtml(release.image)}" alt="${escapeHtml(release.title || 'Music')} cover" loading="lazy" onerror="this.style.display='none'">
+                    ${release.image
+                        ? `<img src="${escapeHtml(release.image)}" alt="${escapeHtml(release.title || 'Music')} cover" loading="lazy" onerror="this.style.display='none'">`
+                        : `<span class="music-cover__placeholder">${escapeHtml(release.title || 'Music')}</span>`}
                 </div>
                 <div class="music-player">
                     <div class="music-listen">

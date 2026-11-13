@@ -1,4 +1,4 @@
-  /* ============================================================
+﻿  /* ============================================================
     RESET & BASE
     ============================================================ */
   * {
@@ -369,6 +369,21 @@
 
   .music-cover--purple {
       background: linear-gradient(160deg, #32096a 0%, #7a1fd4 55%, #1c0a5a 100%);
+  }
+
+  .music-cover__placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12%;
+      color: #fff;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: clamp(28px, 4vw, 54px);
+      font-weight: 700;
+      line-height: 1.15;
+      text-align: center;
   }
 
   .music-cover img {
