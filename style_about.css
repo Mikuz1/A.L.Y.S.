@@ -1,4 +1,11 @@
 /* style_about.css */
+.about-stories { padding: 72px 0 96px; }
+.about-stories h2 { color: #fff; font-size: clamp(28px, 4vw, 42px); margin-bottom: 12px; }
+.about-stories > .container > p { color: #d8dce5; font-size: 18px; line-height: 1.6; margin-bottom: 28px; }
+.about-stories__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.about-stories__grid h3 { font-size: 24px; margin-bottom: 12px; }
+.about-stories__grid h3 a, .about-stories-link a { color: #f9d665; }
+@media (max-width: 650px) { .about-stories__grid { grid-template-columns: 1fr; } }
 
 /* --- Base --- */
 .about-page {

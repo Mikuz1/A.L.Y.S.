@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alys-dj.vercel.app/sitemap.xml
